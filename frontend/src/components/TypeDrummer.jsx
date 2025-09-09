@@ -42,6 +42,21 @@ const TypeDrummer = () => {
       const newChar = newText[newText.length - 1];
       playDrumSound(newChar);
     }
+    
+    // Auto-start playback when text is entered and not already playing
+    if (newText.length > 0 && !isPlaying) {
+      // Small delay to let the current character sound finish
+      setTimeout(() => {
+        if (newText.length > 0) { // Check again in case text was cleared
+          startPlayback();
+        }
+      }, 300);
+    }
+    
+    // Stop playback if text is cleared
+    if (newText.length === 0 && isPlaying) {
+      stopPlayback();
+    }
   };
 
   const startPlayback = useCallback(() => {
