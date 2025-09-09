@@ -108,6 +108,19 @@ const TypeDrummer = () => {
     }
   };
 
+  // Update the text to restart playback when text changes during playback
+  useEffect(() => {
+    if (isPlaying && text.length > 0) {
+      // Restart the playback with new text
+      stopPlayback();
+      setTimeout(() => {
+        if (text.length > 0) {
+          startPlayback();
+        }
+      }, 100);
+    }
+  }, [text]); // Remove startPlayback and stopPlayback from deps to avoid infinite loop
+
   useEffect(() => {
     return () => {
       if (intervalRef.current) {
