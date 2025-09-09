@@ -60,30 +60,31 @@ const TypeDrummer = () => {
   };
 
   const startPlayback = useCallback(() => {
-    if (!text) return;
+    if (!text || isPlaying) return;
     
     setIsPlaying(true);
     setCurrentIndex(0);
+    
+    // Play the first character immediately
+    if (text.length > 0) {
+      playDrumSound(text[0]);
+    }
     
     intervalRef.current = setInterval(() => {
       setCurrentIndex(prevIndex => {
         const nextIndex = prevIndex + 1;
         
         if (nextIndex >= text.length) {
-          if (loop) {
-            playDrumSound(text[0]);
-            return 0;
-          } else {
-            setIsPlaying(false);
-            return -1;
-          }
+          // Loop back to the beginning
+          playDrumSound(text[0]);
+          return 0;
         } else {
           playDrumSound(text[nextIndex]);
           return nextIndex;
         }
       });
     }, beatInterval);
-  }, [text, loop, playDrumSound, beatInterval]);
+  }, [text, playDrumSound, beatInterval, isPlaying]);
 
   const stopPlayback = useCallback(() => {
     setIsPlaying(false);
