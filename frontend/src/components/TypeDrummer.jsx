@@ -229,18 +229,12 @@ const TypeDrummer = () => {
           </Button>
         </div>
 
-        {/* Loop Toggle */}
+        {/* Loop Toggle - Always enabled now */}
         <div className="flex items-center gap-2 mb-8">
-          <input
-            type="checkbox"
-            id="loop"
-            checked={loop}
-            onChange={(e) => setLoop(e.target.checked)}
-            className="w-4 h-4"
-          />
-          <label htmlFor="loop" className="text-gray-700">
-            Loop playback
-          </label>
+          <div className="flex items-center gap-2 text-green-600">
+            <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+            <span className="text-gray-700 font-medium">Auto-loop enabled</span>
+          </div>
         </div>
 
         {/* Drum Map Reference */}
