@@ -157,7 +157,7 @@ const TypeDrummer = () => {
         </h1>
         <p className="text-xl text-gray-600 max-w-2xl mx-auto">
           Make music by typing. Each letter triggers a different drum sound. 
-          Type something and press play to hear your beat.
+          Start typing and your beat will automatically loop!
         </p>
       </header>
 
