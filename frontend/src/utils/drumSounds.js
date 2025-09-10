@@ -152,7 +152,7 @@ export const drumMapping = {
   ')': createDrumSound(140, 'sine', 0.18, 0.25),
   '*': createNoiseSound(16000, 0.02, 0.3), // Splash
   '&': createDrumSound(190, 'triangle', 0.12, 0.25),
-  '%': createNoiseSource(9000, 0.07, 0.2),
+  '%': createNoiseSound(9000, 0.07, 0.2),
   '$': createDrumSound(270, 'sawtooth', 0.09, 0.25),
   '#': createNoiseSound(11000, 0.05, 0.25),
   '@': createDrumSound(340, 'triangle', 0.07, 0.2)
