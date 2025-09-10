@@ -21,7 +21,7 @@ export const getAudioContext = () => {
 };
 
 // Create synthetic drum sounds using Web Audio API
-const createDrumSound = (frequency, type = 'sine', duration = 0.1, gain = 0.3) => {
+export const createDrumSound = (frequency, type = 'sine', duration = 0.1, gain = 0.3) => {
   return {
     name: `${type} ${frequency}Hz`,
     play: () => {
