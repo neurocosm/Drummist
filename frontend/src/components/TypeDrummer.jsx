@@ -33,7 +33,8 @@ const TypeDrummer = () => {
   }, []);
 
   const playDrumSound = useCallback(async (char) => {
-    const drumSound = drumMapping[char.toLowerCase()] || drumMapping[' '];
+    const currentSounds = getCurrentSounds();
+    const drumSound = currentSounds[char.toLowerCase()] || currentSounds[' '];
     if (drumSound && drumSound.play) {
       try {
         // Get fresh audio context
@@ -46,7 +47,7 @@ const TypeDrummer = () => {
         console.log('Audio playback error:', error);
       }
     }
-  }, []);
+  }, [getCurrentSounds]);
 
   const handleTextChange = (e) => {
     const newText = e.target.value;
