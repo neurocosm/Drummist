@@ -16,13 +16,8 @@ const TypeDrummer = () => {
 
   // Initialize audio context
   useEffect(() => {
-    // Audio context will be created when first sound is played
-    return () => {
-      const audioContext = getAudioContext();
-      if (audioContext && audioContext.state !== 'closed') {
-        audioContext.close();
-      }
-    };
+    // Just initialize, don't close it
+    getAudioContext();
   }, []);
 
   const playDrumSound = useCallback((char) => {
