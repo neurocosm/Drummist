@@ -20,17 +20,18 @@ const TypeDrummer = () => {
     getAudioContext();
   }, []);
 
-  const playDrumSound = useCallback((char) => {
+  const playDrumSound = useCallback(async (char) => {
     const drumSound = drumMapping[char.toLowerCase()] || drumMapping[' '];
     if (drumSound && drumSound.play) {
-      // Get the audio context and ensure it's resumed
-      const audioContext = getAudioContext();
-      if (audioContext && audioContext.state === 'suspended') {
-        audioContext.resume().then(() => {
-          drumSound.play();
-        });
-      } else {
+      try {
+        // Get fresh audio context
+        const audioContext = getAudioContext();
+        if (audioContext && audioContext.state === 'suspended') {
+          await audioContext.resume();
+        }
         drumSound.play();
+      } catch (error) {
+        console.log('Audio playback error:', error);
       }
     }
   }, []);
