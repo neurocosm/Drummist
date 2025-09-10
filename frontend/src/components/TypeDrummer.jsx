@@ -3,6 +3,8 @@ import { Button } from './ui/button';
 import { Card } from './ui/card';
 import { Play, Pause, Square, RotateCcw, Volume2 } from 'lucide-react';
 import { drumMapping, getAudioContext } from '../utils/drumSounds';
+import { soundPacks, defaultSoundPack } from '../utils/soundPacks';
+import BeatControls from './BeatControls';
 
 const TypeDrummer = () => {
   const [text, setText] = useState('');
