@@ -62,7 +62,7 @@ export const createDrumSound = (frequency, type = 'sine', duration = 0.1, gain =
 };
 
 // Create noise-based drum sounds
-const createNoiseSound = (filterFreq, duration = 0.1, gain = 0.2) => {
+export const createNoiseSound = (filterFreq, duration = 0.1, gain = 0.2) => {
   return {
     name: `Noise ${filterFreq}Hz`,
     play: () => {
