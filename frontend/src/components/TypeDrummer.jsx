@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { Button } from './ui/button';
 import { Card } from './ui/card';
 import { Play, Pause, Square, RotateCcw, Volume2 } from 'lucide-react';
-import { drumMapping, createAudioContext } from '../utils/drumSounds';
+import { drumMapping, getAudioContext } from '../utils/drumSounds';
 
 const TypeDrummer = () => {
   const [text, setText] = useState('');
