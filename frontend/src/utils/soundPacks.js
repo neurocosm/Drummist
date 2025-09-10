@@ -1,5 +1,5 @@
 // Different sound packs for TypeDrummer
-import { createDrumSound, createNoiseSound } from './drumSounds';
+import { createDrumSound, createNoiseSound, drumMapping } from './drumSounds';
 
 // Classic 808 Hip-Hop Pack
 export const pack808 = {
