@@ -14,7 +14,7 @@ export const createAudioContext = () => {
 };
 
 export const getAudioContext = () => {
-  if (!globalAudioContext) {
+  if (!globalAudioContext || globalAudioContext.state === 'closed') {
     globalAudioContext = createAudioContext();
   }
   return globalAudioContext;
