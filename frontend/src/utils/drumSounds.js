@@ -1,9 +1,14 @@
 // Mock drum sounds implementation for TypeDrummer
 // In a real implementation, these would be actual audio files
 
+let globalAudioContext = null;
+
 export const createAudioContext = () => {
   if (typeof window !== 'undefined' && (window.AudioContext || window.webkitAudioContext)) {
-    return new (window.AudioContext || window.webkitAudioContext)();
+    if (!globalAudioContext) {
+      globalAudioContext = new (window.AudioContext || window.webkitAudioContext)();
+    }
+    return globalAudioContext;
   }
   return null;
 };
@@ -14,23 +19,28 @@ const createDrumSound = (frequency, type = 'sine', duration = 0.1, gain = 0.3) =
     name: `${type} ${frequency}Hz`,
     play: () => {
       try {
-        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-        const oscillator = audioContext.createOscillator();
-        const gainNode = audioContext.createGain();
+        if (!globalAudioContext) {
+          globalAudioContext = createAudioContext();
+        }
+        
+        if (!globalAudioContext) return;
+        
+        const oscillator = globalAudioContext.createOscillator();
+        const gainNode = globalAudioContext.createGain();
         
         oscillator.connect(gainNode);
-        gainNode.connect(audioContext.destination);
+        gainNode.connect(globalAudioContext.destination);
         
-        oscillator.frequency.setValueAtTime(frequency, audioContext.currentTime);
+        oscillator.frequency.setValueAtTime(frequency, globalAudioContext.currentTime);
         oscillator.type = type;
         
-        gainNode.gain.setValueAtTime(gain, audioContext.currentTime);
-        gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + duration);
+        gainNode.gain.setValueAtTime(gain, globalAudioContext.currentTime);
+        gainNode.gain.exponentialRampToValueAtTime(0.01, globalAudioContext.currentTime + duration);
         
-        oscillator.start(audioContext.currentTime);
-        oscillator.stop(audioContext.currentTime + duration);
+        oscillator.start(globalAudioContext.currentTime);
+        oscillator.stop(globalAudioContext.currentTime + duration);
       } catch (error) {
-        console.log('Audio not available');
+        console.log('Audio not available:', error);
       }
     }
   };
@@ -42,9 +52,14 @@ const createNoiseSound = (filterFreq, duration = 0.1, gain = 0.2) => {
     name: `Noise ${filterFreq}Hz`,
     play: () => {
       try {
-        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-        const bufferSize = audioContext.sampleRate * duration;
-        const buffer = audioContext.createBuffer(1, bufferSize, audioContext.sampleRate);
+        if (!globalAudioContext) {
+          globalAudioContext = createAudioContext();
+        }
+        
+        if (!globalAudioContext) return;
+        
+        const bufferSize = globalAudioContext.sampleRate * duration;
+        const buffer = globalAudioContext.createBuffer(1, bufferSize, globalAudioContext.sampleRate);
         const output = buffer.getChannelData(0);
         
         // Generate white noise
@@ -52,25 +67,25 @@ const createNoiseSound = (filterFreq, duration = 0.1, gain = 0.2) => {
           output[i] = Math.random() * 2 - 1;
         }
         
-        const noise = audioContext.createBufferSource();
+        const noise = globalAudioContext.createBufferSource();
         noise.buffer = buffer;
         
-        const filter = audioContext.createBiquadFilter();
+        const filter = globalAudioContext.createBiquadFilter();
         filter.type = 'lowpass';
-        filter.frequency.setValueAtTime(filterFreq, audioContext.currentTime);
+        filter.frequency.setValueAtTime(filterFreq, globalAudioContext.currentTime);
         
-        const gainNode = audioContext.createGain();
-        gainNode.gain.setValueAtTime(gain, audioContext.currentTime);
-        gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + duration);
+        const gainNode = globalAudioContext.createGain();
+        gainNode.gain.setValueAtTime(gain, globalAudioContext.currentTime);
+        gainNode.gain.exponentialRampToValueAtTime(0.01, globalAudioContext.currentTime + duration);
         
         noise.connect(filter);
         filter.connect(gainNode);
-        gainNode.connect(audioContext.destination);
+        gainNode.connect(globalAudioContext.destination);
         
-        noise.start(audioContext.currentTime);
-        noise.stop(audioContext.currentTime + duration);
+        noise.start(globalAudioContext.currentTime);
+        noise.stop(globalAudioContext.currentTime + duration);
       } catch (error) {
-        console.log('Audio not available');
+        console.log('Audio not available:', error);
       }
     }
   };
