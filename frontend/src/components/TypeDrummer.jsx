@@ -16,10 +16,11 @@ const TypeDrummer = () => {
 
   // Initialize audio context
   useEffect(() => {
-    audioContextRef.current = createAudioContext();
+    // Audio context will be created when first sound is played
     return () => {
-      if (audioContextRef.current) {
-        audioContextRef.current.close();
+      const audioContext = getAudioContext();
+      if (audioContext && audioContext.state !== 'closed') {
+        audioContext.close();
       }
     };
   }, []);
