@@ -147,7 +147,8 @@ const TypeDrummer = () => {
 
   const renderCharacter = (char, index) => {
     const isActive = currentIndex === index;
-    const drumInfo = drumMapping[char.toLowerCase()] || drumMapping[' '];
+    const currentSounds = getCurrentSounds();
+    const drumInfo = currentSounds[char.toLowerCase()] || currentSounds[' '];
     
     return (
       <span
@@ -162,6 +163,16 @@ const TypeDrummer = () => {
         {char === ' ' ? '·' : char}
       </span>
     );
+  };
+
+  const handleLoadBeat = (beatData) => {
+    setText(beatData.text);
+    setBpm(beatData.bpm);
+    setSoundPack(beatData.soundPack);
+    // Stop current playback
+    if (isPlaying) {
+      stopPlayback();
+    }
   };
 
   return (
