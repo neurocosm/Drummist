@@ -145,7 +145,7 @@ export const soundPacks = {
   classic: {
     name: "Classic",
     description: "Original TypeDrummer sounds",
-    sounds: {} // Will be filled with original drumMapping
+    sounds: drumMapping
   },
   '808': pack808,
   electronic: packElectronic,
