@@ -213,7 +213,18 @@ const TypeDrummer = () => {
           </Card>
         )}
 
-        {/* Controls */}
+        {/* Beat Controls */}
+        <BeatControls
+          bpm={bpm}
+          setBpm={setBpm}
+          soundPack={soundPack}
+          setSoundPack={setSoundPack}
+          text={text}
+          setText={setText}
+          onLoadBeat={handleLoadBeat}
+        />
+
+        {/* Playback Controls */}
         <div className="flex items-center gap-4 mb-8">
           <Button
             onClick={togglePlayback}
