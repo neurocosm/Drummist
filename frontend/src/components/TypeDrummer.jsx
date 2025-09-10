@@ -267,22 +267,22 @@ const TypeDrummer = () => {
           </Button>
         </div>
 
-        {/* Loop Toggle - Always enabled now */}
+        {/* Auto-loop Status */}
         <div className="flex items-center gap-2 mb-8">
           <div className="flex items-center gap-2 text-green-600">
             <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-            <span className="text-gray-700 font-medium">Auto-loop enabled</span>
+            <span className="text-gray-700 font-medium">Auto-loop enabled • {bpm} BPM</span>
           </div>
         </div>
 
-        {/* Drum Map Reference */}
+        {/* Sound Map Reference */}
         <Card className="w-full max-w-4xl p-6 shadow-lg">
           <h3 className="text-lg font-semibold mb-4 flex items-center">
             <Volume2 className="mr-2 h-5 w-5" />
-            Sound Map
+            Sound Map - {soundPacks[soundPack]?.name || 'Classic'}
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 text-sm">
-            {Object.entries(drumMapping).map(([key, sound]) => (
+            {Object.entries(getCurrentSounds()).map(([key, sound]) => (
               <div
                 key={key}
                 className="flex items-center gap-2 p-2 bg-gray-50 rounded hover:bg-gray-100 cursor-pointer transition-colors"
