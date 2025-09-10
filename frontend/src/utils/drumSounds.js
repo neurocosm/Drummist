@@ -160,8 +160,3 @@ export const drumMapping = {
 
 // Fallback for any unmapped characters
 export const getDefaultSound = () => createDrumSound(200, 'triangle', 0.1, 0.2);
-
-// Helper function for creating noise sounds (fixing typo in mapping)
-function createNoiseSource(filterFreq, duration = 0.1, gain = 0.2) {
-  return createNoiseSound(filterFreq, duration, gain);
-}
