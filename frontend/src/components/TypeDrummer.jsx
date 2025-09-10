@@ -28,11 +28,15 @@ const TypeDrummer = () => {
   const playDrumSound = useCallback((char) => {
     const drumSound = drumMapping[char.toLowerCase()] || drumMapping[' '];
     if (drumSound && drumSound.play) {
-      // Ensure audio context is resumed (browser autoplay policy)
-      if (audioContextRef.current && audioContextRef.current.state === 'suspended') {
-        audioContextRef.current.resume();
+      // Get the audio context and ensure it's resumed
+      const audioContext = getAudioContext();
+      if (audioContext && audioContext.state === 'suspended') {
+        audioContext.resume().then(() => {
+          drumSound.play();
+        });
+      } else {
+        drumSound.play();
       }
-      drumSound.play();
     }
   }, []);
 
