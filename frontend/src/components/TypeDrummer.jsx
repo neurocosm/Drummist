@@ -104,14 +104,22 @@ const TypeDrummer = () => {
   useEffect(() => {
     if (isPlaying && text.length > 0) {
       // Restart the playback with new text
-      stopPlayback();
-      setTimeout(() => {
-        if (text.length > 0) {
-          startPlayback();
-        }
-      }, 100);
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+      setCurrentIndex(0);
+      
+      // Play first character of new text
+      playDrumSound(text[0]);
+      
+      let currentIdx = 0;
+      intervalRef.current = setInterval(() => {
+        currentIdx = (currentIdx + 1) % text.length;
+        setCurrentIndex(currentIdx);
+        playDrumSound(text[currentIdx]);
+      }, beatInterval);
     }
-  }, [text]); // Remove startPlayback and stopPlayback from deps to avoid infinite loop
+  }, [text, beatInterval, playDrumSound]); // Removed isPlaying to avoid infinite loop
 
   useEffect(() => {
     return () => {
