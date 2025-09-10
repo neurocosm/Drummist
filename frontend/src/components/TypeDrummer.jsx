@@ -70,19 +70,11 @@ const TypeDrummer = () => {
       playDrumSound(text[0]);
     }
     
+    let currentIdx = 0;
     intervalRef.current = setInterval(() => {
-      setCurrentIndex(prevIndex => {
-        const nextIndex = prevIndex + 1;
-        
-        if (nextIndex >= text.length) {
-          // Loop back to the beginning
-          playDrumSound(text[0]);
-          return 0;
-        } else {
-          playDrumSound(text[nextIndex]);
-          return nextIndex;
-        }
-      });
+      currentIdx = (currentIdx + 1) % text.length;
+      setCurrentIndex(currentIdx);
+      playDrumSound(text[currentIdx]);
     }, beatInterval);
   }, [text, playDrumSound, beatInterval, isPlaying]);
 
