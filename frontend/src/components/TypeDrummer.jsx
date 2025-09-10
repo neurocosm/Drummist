@@ -10,11 +10,21 @@ const TypeDrummer = () => {
   const [text, setText] = useState('');
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(-1);
-  const [loop, setLoop] = useState(true);
+  const [bpm, setBpm] = useState(120);
+  const [soundPack, setSoundPack] = useState(defaultSoundPack);
   const audioContextRef = useRef(null);
   const intervalRef = useRef(null);
-  const beatsPerMinute = 120;
-  const beatInterval = (60 / beatsPerMinute / 4) * 1000; // 16th notes
+  
+  // Calculate beat interval based on BPM
+  const beatInterval = (60 / bpm / 4) * 1000; // 16th notes
+
+  // Get current sound mapping based on selected pack
+  const getCurrentSounds = useCallback(() => {
+    if (soundPack === 'classic') {
+      return drumMapping;
+    }
+    return soundPacks[soundPack]?.sounds || drumMapping;
+  }, [soundPack]);
 
   // Initialize audio context
   useEffect(() => {
