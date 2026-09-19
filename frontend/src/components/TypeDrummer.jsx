@@ -149,13 +149,10 @@ const TypeDrummer = () => {
   };
 
   const handleLoadBeat = (beatData) => {
+    stopPlayback();
     setText(beatData.text);
     setBpm(beatData.bpm);
     setSoundPack(beatData.soundPack);
-    // Stop current playback
-    if (isPlaying) {
-      stopPlayback();
-    }
   };
 
   return (

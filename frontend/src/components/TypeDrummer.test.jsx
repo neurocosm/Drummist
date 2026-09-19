@@ -82,6 +82,19 @@ test('Pause resumes at the next character; Stop resets to the beginning', () => 
   expect(drumMapping.a.play).toHaveBeenCalledTimes(2);
 });
 
+test('loading a different beat while paused resets playback to its beginning', () => {
+  type('ab');
+  click('Pause');
+  click('Load test beat');
+  expect(container.textContent).toContain('Stopped');
+  jest.clearAllMocks();
+  advance(500);
+  expect(count()).toBe(0);
+  click('Play');
+  expect(drumMapping.b.play).toHaveBeenCalledTimes(1);
+  expect(drumMapping.a.play).not.toHaveBeenCalled();
+});
+
 test('tempo and pack replace the running loop, and cannot restart a stopped beat', () => {
   type('ab');
   click('Slow tempo');
