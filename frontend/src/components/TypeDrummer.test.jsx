@@ -53,7 +53,10 @@ afterEach(() => {
 test('first character starts one loop; rapid edits cannot restart after Clear', () => {
   type('a');
   expect(count()).toBe(1);
-  advance(125);
+  expect(container.textContent).toContain('85 BPM');
+  advance(175);
+  expect(count()).toBe(1);
+  advance(1);
   expect(count()).toBe(2);
   type('ab');
   type('aba');

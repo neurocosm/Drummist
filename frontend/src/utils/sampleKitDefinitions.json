@@ -284,17 +284,17 @@
     },
     {
       "key": "b",
-      "name": "Kick · ringing",
+      "name": "Kick · ringing accent",
       "role": "kick",
       "file": "acoustic/key-98.flac",
-      "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/kick_24_nodamp/kick/kick/k_nodamp_vl3_rr1.flac"
+      "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/kick_24_nodamp/kick/kick/k_nodamp_vl6_rr1.flac"
     },
     {
       "key": "k",
-      "name": "Kick · light beater",
+      "name": "Kick · hard beater",
       "role": "kick",
       "file": "acoustic/key-107.flac",
-      "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/kick_24/kick/kick/k_vl3_rr1.flac"
+      "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/kick_24/kick/kick/k_vl14_rr1.flac"
     },
     {
       "key": "0",
@@ -315,7 +315,7 @@
       "name": "Snare · center",
       "role": "snare",
       "file": "acoustic/key-115.flac",
-      "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/snare_14/center/top/sn_center_vl3_rr1.flac"
+      "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/snare_14/center/top/sn_center_vl6_rr1.flac"
     },
     {
       "key": "d",
@@ -333,17 +333,17 @@
     },
     {
       "key": "2",
-      "name": "Snare · brush",
+      "name": "Snare · hard center",
       "role": "snare",
       "file": "acoustic/key-50.flac",
-      "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/snare_14/brush/top/sn_b_vl3_rr1.flac"
+      "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/snare_14/center/top/sn_center_vl10_rr1.flac"
     },
     {
       "key": "3",
-      "name": "Snare · mallet",
+      "name": "Snare · hard rimshot",
       "role": "snare",
       "file": "acoustic/key-51.flac",
-      "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/snare_14/mallet/top/sn_m_vl3_rr1.flac"
+      "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/snare_14/rimshot/top/sn_rims_vl6_rr1.flac"
     },
     {
       "key": "h",
@@ -375,10 +375,10 @@
     },
     {
       "key": "4",
-      "name": "Hi-hat · closed brush",
-      "role": "closed-hat",
+      "name": "Hi-hat · quarter-open shank",
+      "role": "open-hat",
       "file": "acoustic/key-52.flac",
-      "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/hihat_14/cl_brush/cl/ht_cl_b_vl3_rr1.flac"
+      "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/hihat_14/qo_s/cl/ht_qo_s_vl4_rr1.flac"
     },
     {
       "key": "5",
@@ -389,10 +389,10 @@
     },
     {
       "key": "o",
-      "name": "Hi-hat · fully open",
-      "role": "open-hat",
-      "file": "acoustic/key-111.flac",
-      "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/hihat_14/open/cl/ht_open_vl3_rr1.flac"
+      "name": "Cowbell · open",
+      "role": "percussion",
+      "file": "acoustic/key-111.wav",
+      "source": "https://raw.githubusercontent.com/sgossner/VCSL/c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e/Idiophones/Struck%20Idiophones/Cowbells/Cowbell1_Hit_v3_rr1_Mid.wav"
     },
     {
       "key": "u",
@@ -413,49 +413,53 @@
       "name": "18-inch tom · stick",
       "role": "low-tom",
       "file": "acoustic/key-106.flac",
-      "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/tom_18/center/cl/t18_vl3_rr1.flac"
+      "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/tom_18/center/cl/t18_vl5_rr1.flac"
     },
     {
       "key": "m",
-      "name": "22-inch tom · stick",
+      "name": "22-inch tom · hard stick",
       "role": "low-tom",
       "file": "acoustic/key-109.flac",
-      "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/tom_22/center/cl/t22_vl3_rr1.flac"
+      "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/tom_22/center/cl/t22_vl7_rr1.flac"
     },
     {
       "key": "z",
-      "name": "18-inch tom · mallet",
+      "name": "18-inch tom · hard accent",
       "role": "low-tom",
       "file": "acoustic/key-122.flac",
-      "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/tom_18/mallet/cl/t18_m_vl3_rr1.flac"
+      "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/tom_18/center/cl/t18_vl8_rr1.flac"
     },
     {
       "key": "7",
-      "name": "18-inch tom · brush",
-      "role": "low-tom",
+      "name": "8-inch splash cymbal",
+      "role": "crash",
       "file": "acoustic/key-55.flac",
-      "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/tom_18/brush/cl/t18_b_vl3_rr1.flac"
+      "source": "https://raw.githubusercontent.com/studiorack/salamander-drumkit/8b6faa8847b4c02f4b5dd42c1836c28ffbe89d33/Samples/splash1_OH_F_1.flac",
+      "license": "CC-BY-SA-3.0",
+      "author": "Alexander Holm",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "modifications": "Unmodified recording; renamed locally. Playback gain balancing only."
     },
     {
       "key": "g",
       "name": "15-inch tom · stick",
       "role": "mid-tom",
       "file": "acoustic/key-103.flac",
-      "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/tom_15/center/cl/t15_vl3_rr1.flac"
+      "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/tom_15/center/cl/t15_vl4_rr1.flac"
     },
     {
       "key": "n",
-      "name": "15-inch tom · mallet",
+      "name": "15-inch tom · hard accent",
       "role": "mid-tom",
       "file": "acoustic/key-110.flac",
-      "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/tom_15/mallet/cl/t15_m_vl3_rr1.flac"
+      "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/tom_15/center/cl/t15_vl7_rr1.flac"
     },
     {
       "key": "v",
-      "name": "15-inch tom · brush",
-      "role": "mid-tom",
+      "name": "Ride · edge crash",
+      "role": "crash",
       "file": "acoustic/key-118.flac",
-      "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/tom_15/brush/cl/t15_b_vl3_rr1.flac"
+      "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/ride_22/ed/cl/rd_ed_vl4_rr1.flac"
     },
     {
       "key": "8",
@@ -469,21 +473,21 @@
       "name": "14-inch tom · stick",
       "role": "high-tom",
       "file": "acoustic/key-101.flac",
-      "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/tom_14/center/cl/t14_vl3_rr1.flac"
+      "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/tom_14/center/cl/t14_vl4_rr1.flac"
     },
     {
       "key": "t",
-      "name": "14-inch tom · mallet",
+      "name": "14-inch tom · hard accent",
       "role": "high-tom",
       "file": "acoustic/key-116.flac",
-      "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/tom_14/mallet/cl/t14_m_vl3_rr1.flac"
+      "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/tom_14/center/cl/t14_vl6_rr1.flac"
     },
     {
       "key": "y",
-      "name": "14-inch tom · brush",
-      "role": "high-tom",
+      "name": "Sizzle crash · hard hit",
+      "role": "crash",
       "file": "acoustic/key-121.flac",
-      "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/tom_14/brush/cl/t14_b_vl3_rr1.flac"
+      "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/crash_sizzle_17/cr/cl/crs_vl6_rr1.flac"
     },
     {
       "key": "9",
@@ -494,17 +498,17 @@
     },
     {
       "key": "q",
-      "name": "Crash cymbal · stick",
+      "name": "Crash · hard hit",
       "role": "crash",
       "file": "acoustic/key-113.flac",
-      "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/crash_17/cr/cl/cr_vl3_rr1.flac"
+      "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/crash_17/cr/cl/cr_vl5_rr1.flac"
     },
     {
       "key": "!",
-      "name": "China cymbal",
+      "name": "China · hard hit",
       "role": "crash",
       "file": "acoustic/key-33.flac",
-      "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/china_18/cn/cl/cn_vl3_rr1.flac"
+      "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/china_18/cn/cl/cn_vl5_rr1.flac"
     },
     {
       "key": "w",
@@ -536,17 +540,292 @@
     },
     {
       "key": ".",
-      "name": "Cymbal stack · edge",
+      "name": "Cymbal stack · hard edge",
       "role": "crash",
       "file": "acoustic/key-46.flac",
-      "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/stack_3_layer/ed/cl/st_ed_vl3_rr1.flac"
+      "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/stack_3_layer/ed/cl/st_ed_vl6_rr1.flac"
     },
     {
       "key": ",",
-      "name": "Crash cymbal · mallet",
-      "role": "crash",
+      "name": "Sizzle crash · bell",
+      "role": "ride",
       "file": "acoustic/key-44.flac",
-      "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/crash_17/mallet/cl/cr_m_vl3_rr1.flac"
+      "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/crash_sizzle_17/bl/cl/crs_bl_vl5_rr1.flac"
+    }
+  ],
+  "world": [
+    {
+      "key": "a",
+      "name": "Cajón flamenco · 1",
+      "role": "percussion",
+      "file": "world/key-97.flac",
+      "source": "https://raw.githubusercontent.com/freepats/world-percussion/e54eb2912a0d6d4444ab205d52f778e27da0fc96/samples/CajonFlamenco/101.flac"
+    },
+    {
+      "key": "b",
+      "name": "Cajón flamenco · 3",
+      "role": "percussion",
+      "file": "world/key-98.flac",
+      "source": "https://raw.githubusercontent.com/freepats/world-percussion/e54eb2912a0d6d4444ab205d52f778e27da0fc96/samples/CajonFlamenco/217.flac"
+    },
+    {
+      "key": "c",
+      "name": "Cajón flamenco · 2",
+      "role": "percussion",
+      "file": "world/key-99.flac",
+      "source": "https://raw.githubusercontent.com/freepats/world-percussion/e54eb2912a0d6d4444ab205d52f778e27da0fc96/samples/CajonFlamenco/106.flac"
+    },
+    {
+      "key": "d",
+      "name": "Bongo · muted",
+      "role": "percussion",
+      "file": "world/key-100.flac",
+      "source": "https://raw.githubusercontent.com/freepats/world-percussion/e54eb2912a0d6d4444ab205d52f778e27da0fc96/samples/Bongos/2_08.flac"
+    },
+    {
+      "key": "e",
+      "name": "Bongo · high",
+      "role": "percussion",
+      "file": "world/key-101.flac",
+      "source": "https://raw.githubusercontent.com/freepats/world-percussion/e54eb2912a0d6d4444ab205d52f778e27da0fc96/samples/Bongos/1_01.flac"
+    },
+    {
+      "key": "f",
+      "name": "Bongo · low",
+      "role": "percussion",
+      "file": "world/key-102.flac",
+      "source": "https://raw.githubusercontent.com/freepats/world-percussion/e54eb2912a0d6d4444ab205d52f778e27da0fc96/samples/Bongos/2_10.flac"
+    },
+    {
+      "key": "g",
+      "name": "Egg shaker · slow",
+      "role": "percussion",
+      "file": "world/key-103.wav",
+      "source": "https://raw.githubusercontent.com/freepats/world-percussion/e54eb2912a0d6d4444ab205d52f778e27da0fc96/samples/EggShaker/slow_01.wav"
+    },
+    {
+      "key": "h",
+      "name": "Egg shaker · fast",
+      "role": "percussion",
+      "file": "world/key-104.flac",
+      "source": "https://raw.githubusercontent.com/freepats/world-percussion/e54eb2912a0d6d4444ab205d52f778e27da0fc96/samples/EggShaker/fast_02.flac"
+    },
+    {
+      "key": "i",
+      "name": "Egg shaker · soft",
+      "role": "percussion",
+      "file": "world/key-105.wav",
+      "source": "https://raw.githubusercontent.com/freepats/world-percussion/e54eb2912a0d6d4444ab205d52f778e27da0fc96/samples/EggShaker/soft_01.wav"
+    },
+    {
+      "key": "j",
+      "name": "Tambourine · shake",
+      "role": "percussion",
+      "file": "world/key-106.flac",
+      "source": "https://raw.githubusercontent.com/freepats/world-percussion/e54eb2912a0d6d4444ab205d52f778e27da0fc96/samples/Tambourine/01_01.flac"
+    },
+    {
+      "key": "k",
+      "name": "Tambourine · fast",
+      "role": "percussion",
+      "file": "world/key-107.wav",
+      "source": "https://raw.githubusercontent.com/freepats/world-percussion/e54eb2912a0d6d4444ab205d52f778e27da0fc96/samples/Tambourine/fast_03.wav"
+    },
+    {
+      "key": "l",
+      "name": "Hand clap",
+      "role": "percussion",
+      "file": "world/key-108.flac",
+      "source": "https://raw.githubusercontent.com/freepats/world-percussion/e54eb2912a0d6d4444ab205d52f778e27da0fc96/samples/HandClap/01_02.flac"
+    },
+    {
+      "key": "m",
+      "name": "Claves",
+      "role": "percussion",
+      "file": "world/key-109.flac",
+      "source": "https://raw.githubusercontent.com/freepats/world-percussion/e54eb2912a0d6d4444ab205d52f778e27da0fc96/samples/Claves/01.flac"
+    },
+    {
+      "key": "n",
+      "name": "Castanets",
+      "role": "percussion",
+      "file": "world/key-110.flac",
+      "source": "https://raw.githubusercontent.com/freepats/world-percussion/e54eb2912a0d6d4444ab205d52f778e27da0fc96/samples/Castanets/01.flac"
+    },
+    {
+      "key": "o",
+      "name": "Conga · open",
+      "role": "percussion",
+      "file": "world/key-111.flac",
+      "source": "https://raw.githubusercontent.com/freepats/world-percussion/e54eb2912a0d6d4444ab205d52f778e27da0fc96/samples/Conga/v2_01_01.flac"
+    },
+    {
+      "key": "p",
+      "name": "Conga · low",
+      "role": "percussion",
+      "file": "world/key-112.flac",
+      "source": "https://raw.githubusercontent.com/freepats/world-percussion/e54eb2912a0d6d4444ab205d52f778e27da0fc96/samples/LowConga/v4_01_01.flac"
+    },
+    {
+      "key": "q",
+      "name": "Conga · high",
+      "role": "percussion",
+      "file": "world/key-113.flac",
+      "source": "https://raw.githubusercontent.com/freepats/world-percussion/e54eb2912a0d6d4444ab205d52f778e27da0fc96/samples/HighConga/v2_01_01.flac"
+    },
+    {
+      "key": "r",
+      "name": "Conga · muted",
+      "role": "percussion",
+      "file": "world/key-114.flac",
+      "source": "https://raw.githubusercontent.com/freepats/world-percussion/e54eb2912a0d6d4444ab205d52f778e27da0fc96/samples/MutedConga/v1_02_01.flac"
+    },
+    {
+      "key": "s",
+      "name": "Low conga · muted",
+      "role": "percussion",
+      "file": "world/key-115.flac",
+      "source": "https://raw.githubusercontent.com/freepats/world-percussion/e54eb2912a0d6d4444ab205d52f778e27da0fc96/samples/MutedLowConga/v4_01_01.flac"
+    },
+    {
+      "key": "t",
+      "name": "Maracas · forward",
+      "role": "percussion",
+      "file": "world/key-116.flac",
+      "source": "https://raw.githubusercontent.com/freepats/world-percussion/e54eb2912a0d6d4444ab205d52f778e27da0fc96/samples/Maracas/01_01.flac"
+    },
+    {
+      "key": "u",
+      "name": "Maracas · backward",
+      "role": "percussion",
+      "file": "world/key-117.flac",
+      "source": "https://raw.githubusercontent.com/freepats/world-percussion/e54eb2912a0d6d4444ab205d52f778e27da0fc96/samples/Maracas/02_01.flac"
+    },
+    {
+      "key": "v",
+      "name": "Darbuka · doom",
+      "role": "percussion",
+      "file": "world/key-118.flac",
+      "source": "https://raw.githubusercontent.com/freepats/world-percussion/e54eb2912a0d6d4444ab205d52f778e27da0fc96/samples/Darbuka/doom_01_01.flac"
+    },
+    {
+      "key": "w",
+      "name": "Darbuka · tak",
+      "role": "percussion",
+      "file": "world/key-119.flac",
+      "source": "https://raw.githubusercontent.com/freepats/world-percussion/e54eb2912a0d6d4444ab205d52f778e27da0fc96/samples/Darbuka/tak_02_01.flac"
+    },
+    {
+      "key": "x",
+      "name": "Darbuka · pa",
+      "role": "percussion",
+      "file": "world/key-120.flac",
+      "source": "https://raw.githubusercontent.com/freepats/world-percussion/e54eb2912a0d6d4444ab205d52f778e27da0fc96/samples/Darbuka/pa_03_01.flac"
+    },
+    {
+      "key": "y",
+      "name": "Cowbell · open",
+      "role": "percussion",
+      "file": "world/key-121.wav",
+      "source": "https://raw.githubusercontent.com/sgossner/VCSL/c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e/Idiophones/Struck%20Idiophones/Cowbells/Cowbell1_Hit_v3_rr1_Mid.wav"
+    },
+    {
+      "key": "z",
+      "name": "Cowbell · muted",
+      "role": "percussion",
+      "file": "world/key-122.wav",
+      "source": "https://raw.githubusercontent.com/sgossner/VCSL/c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e/Idiophones/Struck%20Idiophones/Cowbells/Cowbell1_Muted_v3_rr1_Mid.wav"
+    },
+    {
+      "key": "0",
+      "name": "Agogo · high",
+      "role": "percussion",
+      "file": "world/key-48.wav",
+      "source": "https://raw.githubusercontent.com/sgossner/VCSL/c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e/Idiophones/Struck%20Idiophones/Agogo%20Bells/Agogo_High_v2_rr1_Mid.wav"
+    },
+    {
+      "key": "1",
+      "name": "Agogo · low",
+      "role": "percussion",
+      "file": "world/key-49.wav",
+      "source": "https://raw.githubusercontent.com/sgossner/VCSL/c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e/Idiophones/Struck%20Idiophones/Agogo%20Bells/Agogo_Low_v2_rr1_Mid.wav"
+    },
+    {
+      "key": "2",
+      "name": "Woodblock · click",
+      "role": "percussion",
+      "file": "world/key-50.wav",
+      "source": "https://raw.githubusercontent.com/sgossner/VCSL/c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e/Idiophones/Struck%20Idiophones/Woodblock/wood_click2_mp.wav"
+    },
+    {
+      "key": "3",
+      "name": "Woodblock · knock",
+      "role": "percussion",
+      "file": "world/key-51.wav",
+      "source": "https://raw.githubusercontent.com/sgossner/VCSL/c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e/Idiophones/Struck%20Idiophones/Woodblock/wood_click3_vl2.wav"
+    },
+    {
+      "key": "4",
+      "name": "Cabasa · hit",
+      "role": "percussion",
+      "file": "world/key-52.wav",
+      "source": "https://raw.githubusercontent.com/sgossner/VCSL/c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e/Idiophones/Struck%20Idiophones/Cabasa/Cabasa1_Hit_rr1_Mid.wav"
+    },
+    {
+      "key": "5",
+      "name": "Cabasa · rub",
+      "role": "percussion",
+      "file": "world/key-53.wav",
+      "source": "https://raw.githubusercontent.com/sgossner/VCSL/c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e/Idiophones/Struck%20Idiophones/Cabasa/Cabasa1_Rub_v2_rr1_Mid.wav"
+    },
+    {
+      "key": "6",
+      "name": "Güiro · fast scrape",
+      "role": "percussion",
+      "file": "world/key-54.wav",
+      "source": "https://raw.githubusercontent.com/sgossner/VCSL/c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e/Idiophones/Struck%20Idiophones/Guiro/Guiro_Fast_rr1_Mid.wav"
+    },
+    {
+      "key": "7",
+      "name": "Güiro · tap",
+      "role": "percussion",
+      "file": "world/key-55.wav",
+      "source": "https://raw.githubusercontent.com/sgossner/VCSL/c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e/Idiophones/Struck%20Idiophones/Guiro/Guiro_Hit_rr1_Mid.wav"
+    },
+    {
+      "key": "8",
+      "name": "Triangle · ringing",
+      "role": "percussion",
+      "file": "world/key-56.wav",
+      "source": "https://raw.githubusercontent.com/sgossner/VCSL/c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e/Idiophones/Struck%20Idiophones/Triangles/Triangle1_Hit_v1_rr1_Mid.wav"
+    },
+    {
+      "key": "9",
+      "name": "Triangle · muted",
+      "role": "percussion",
+      "file": "world/key-57.wav",
+      "source": "https://raw.githubusercontent.com/sgossner/VCSL/c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e/Idiophones/Struck%20Idiophones/Triangles/Triangle1_HitM_v1_rr2_Mid.wav"
+    },
+    {
+      "key": "!",
+      "name": "Sleigh bells",
+      "role": "percussion",
+      "file": "world/key-33.wav",
+      "source": "https://raw.githubusercontent.com/sgossner/VCSL/c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e/Idiophones/Struck%20Idiophones/Sleigh%20Bells/Sleighbells_Hit_rr1_Mid.wav"
+    },
+    {
+      "key": ".",
+      "name": "Tambourine · hit",
+      "role": "percussion",
+      "file": "world/key-46.wav",
+      "source": "https://raw.githubusercontent.com/sgossner/VCSL/c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e/Idiophones/Struck%20Idiophones/Tambourine%201/Tamb1_Hit_v2_rr1_Mid.wav"
+    },
+    {
+      "key": ",",
+      "name": "Large shaker · hit",
+      "role": "percussion",
+      "file": "world/key-44.wav",
+      "source": "https://raw.githubusercontent.com/sgossner/VCSL/c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e/Idiophones/Struck%20Idiophones/Shaker%2C%20Large/LShaker_Hit_rr1_Mid.wav"
     }
   ]
 }
