@@ -214,7 +214,7 @@ const TypeDrummer = () => {
           ) : !kitReady ? (
             <p>Loading {soundPacks[soundPack]?.name}…</p>
           ) : soundPacks[soundPack]?.sampleBased ? (
-            <p>Recorded samples ready · A = kick · S = snare · H = closed hat · O = open hat · Space = rest</p>
+            <p>39 distinct recordings · One sound per key · A = kick · S = snare · H = closed hat · O = open hat · Space = rest</p>
           ) : <p>Legacy synthesized sounds</p>}
         </div>
 

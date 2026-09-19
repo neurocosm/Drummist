@@ -40,7 +40,7 @@ export const getAudioContext = () => {
 // Create synthetic drum sounds using Web Audio API
 export const createDrumSound = (frequency, type = 'sine', duration = 0.1, gain = 0.3) => {
   return {
-    name: `${type} ${frequency}Hz`,
+    name: `${type} ${frequency}Hz · ${Math.round(duration * 1000)}ms`,
     synthesis: { frequency, type, duration, gain },
     play: () => {
       try {
@@ -88,7 +88,7 @@ export const createDrumSound = (frequency, type = 'sine', duration = 0.1, gain =
 // Create noise-based drum sounds
 export const createNoiseSound = (filterFreq, duration = 0.1, gain = 0.2) => {
   return {
-    name: `Noise ${filterFreq}Hz`,
+    name: `Noise ${filterFreq}Hz · ${Math.round(duration * 1000)}ms`,
     synthesis: { filterFreq, type: 'noise', duration, gain },
     play: () => {
       try {
@@ -180,7 +180,7 @@ export const drumMapping = {
   '0': createDrumSound(50, 'sine', 0.5, 0.4), // Sub kick
   '1': createDrumSound(65, 'sine', 0.35, 0.4),
   '2': createDrumSound(85, 'triangle', 0.25, 0.3),
-  '3': createDrumSound(110, 'sawtooth', 0.2, 0.3),
+  '3': createDrumSound(105, 'square', 0.16, 0.3),
   '4': createDrumSound(140, 'sine', 0.18, 0.3),
   '5': createDrumSound(170, 'triangle', 0.15, 0.3),
   '6': createDrumSound(210, 'sawtooth', 0.12, 0.3),
@@ -202,9 +202,9 @@ export const drumMapping = {
   '\\': createNoiseSound(6000, 0.08, 0.2),
   '|': createDrumSound(300, 'triangle', 0.05, 0.2),
   '[': createDrumSound(150, 'sine', 0.15, 0.25),
-  ']': createDrumSound(170, 'triangle', 0.15, 0.25),
+  ']': createDrumSound(175, 'square', 0.13, 0.25),
   '(': createDrumSound(120, 'sawtooth', 0.18, 0.25),
-  ')': createDrumSound(140, 'sine', 0.18, 0.25),
+  ')': createDrumSound(145, 'triangle', 0.21, 0.25),
   '*': createNoiseSound(16000, 0.02, 0.3), // Splash
   '&': createDrumSound(190, 'triangle', 0.12, 0.25),
   '%': createNoiseSound(9000, 0.07, 0.2),

@@ -1,19 +1,8 @@
 import { getAudioContext, trackSampleSource } from './drumSounds';
+import definitions from './sampleKitDefinitions.json';
 
 const cache = new Map();
 let openHat = null;
-const roles = {
-  'kick': ['Kick', 'abk01'],
-  'snare': ['Snare', 'sdf23'],
-  'closed-hat': ['Closed hi-hat', 'hcix45'],
-  'open-hat': ['Open hi-hat', 'ou6'],
-  'low-tom': ['Low tom', 'jmz7'],
-  'mid-tom': ['Mid tom', 'gnv8'],
-  'high-tom': ['High tom', 'ety9'],
-  'crash': ['Crash cymbal', 'q!'],
-  'ride': ['Ride cymbal', 'w'],
-  'rim': ['Rim click', 'lrp.,'],
-};
 
 export function loadSample(url) {
   if (!cache.has(url)) {
@@ -35,19 +24,20 @@ export function loadSample(url) {
   return cache.get(url);
 }
 
-function createKit(folder, extension, name, description) {
+function createKit(folder, name, description) {
   const decoded = new Map();
   const sounds = {};
-  for (const [role, [label, keys]] of Object.entries(roles)) {
+  for (const {key, name: label, role, file} of definitions[folder]) {
     const sound = {
-      name: role === 'ride' && folder === '808' ? 'Cowbell' : label,
+      name: label,
       role,
+      file,
       sample: () => {
-        const audio = decoded.get(role);
+        const audio = decoded.get(key);
         return audio && { ...audio, gain: audio.gain * (role === 'crash' ? 0.6 : role.includes('hat') ? 0.75 : 1) };
       },
       play() {
-        const audio = decoded.get(role);
+        const audio = decoded.get(key);
         if (!audio) return;
         const context = getAudioContext();
         if (role === 'closed-hat' || role === 'open-hat') {
@@ -69,19 +59,19 @@ function createKit(folder, extension, name, description) {
         source.start();
       },
     };
-    for (const key of keys) sounds[key] = sound;
+    sounds[key] = sound;
   }
   sounds[' '] = { name: 'Rest', play() {} };
   return {
     name, description, sounds, sampleBased: true,
     async preload() {
-      await Promise.all(Object.keys(roles).map(async role => {
-        const sample = await loadSample(`${process.env.PUBLIC_URL || ''}/samples/${folder}/${role}.${extension}`);
-        decoded.set(role, sample);
+      await Promise.all(definitions[folder].map(async ({key, file}) => {
+        const sample = await loadSample(`${process.env.PUBLIC_URL || ''}/samples/${file}`);
+        decoded.set(key, sample);
       }));
     },
   };
 }
 
-export const acousticKit = createKit('acoustic', 'flac', 'Acoustic Studio', 'Recorded drums · woody shells, ringing cymbals');
-export const vintageKit = createKit('808', 'wav', 'Vintage 808', 'Recorded drum machine · deep kicks, crisp hats');
+export const acousticKit = createKit('acoustic', 'Acoustic Studio', '39 recordings · sticks, brushes, mallets and cymbals');
+export const vintageKit = createKit('808', 'Vintage 808', '39 recordings · drums, congas, claps and percussion');
