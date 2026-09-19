@@ -1,142 +1,782 @@
 [
   {
-    "kit": "acoustic",
-    "role": "kick",
-    "file": "acoustic/kick.flac",
-    "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/kick_24/tc/cl/k_tc_vl3_rr1.flac",
-    "bytes": 39664
-  },
-  {
-    "kit": "acoustic",
-    "role": "snare",
-    "file": "acoustic/snare.flac",
-    "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/snare_14/center/top/sn_center_vl3_rr1.flac",
-    "bytes": 42663
-  },
-  {
-    "kit": "acoustic",
-    "role": "closed-hat",
-    "file": "acoustic/closed-hat.flac",
-    "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/hihat_14/cl/cl/ht_cl_vl3_rr1.flac",
-    "bytes": 37971
-  },
-  {
-    "kit": "acoustic",
-    "role": "open-hat",
-    "file": "acoustic/open-hat.flac",
-    "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/hihat_14/open/cl/ht_open_vl3_rr1.flac",
-    "bytes": 210497
-  },
-  {
-    "kit": "acoustic",
-    "role": "low-tom",
-    "file": "acoustic/low-tom.flac",
-    "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/tom_18/center/cl/t18_vl3_rr1.flac",
-    "bytes": 47031
-  },
-  {
-    "kit": "acoustic",
-    "role": "mid-tom",
-    "file": "acoustic/mid-tom.flac",
-    "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/tom_15/center/cl/t15_vl3_rr1.flac",
-    "bytes": 46205
-  },
-  {
-    "kit": "acoustic",
-    "role": "high-tom",
-    "file": "acoustic/high-tom.flac",
-    "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/tom_14/center/cl/t14_vl3_rr1.flac",
-    "bytes": 49303
-  },
-  {
-    "kit": "acoustic",
-    "role": "crash",
-    "file": "acoustic/crash.flac",
-    "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/crash_17/cr/cl/cr_vl3_rr1.flac",
-    "bytes": 325235
-  },
-  {
-    "kit": "acoustic",
-    "role": "rim",
-    "file": "acoustic/rim.flac",
-    "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/snare_14/sidestick/top/sn_ss_vl3_rr1.flac",
-    "bytes": 42503
-  },
-  {
-    "kit": "acoustic",
-    "role": "ride",
-    "file": "acoustic/ride.flac",
-    "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/ride_22/rd/cl/rd_vl3_rr1.flac",
-    "bytes": 308641
-  },
-  {
     "kit": "808",
+    "key": "a",
+    "name": "Kick · dark medium",
     "role": "kick",
-    "file": "808/kick.wav",
+    "file": "808/key-97.wav",
     "source": "https://raw.githubusercontent.com/tidalcycles/sounds-tr808-fischer/85fbecf1bec32553395625ea659e2a56dfd7c0e1/bd8/BD0050.WAV",
-    "bytes": 132346
+    "bytes": 132346,
+    "sha256": "7f25e10c782f4a99c57ca346743a912e9104a414a3a22d06595329b3370d4362"
   },
   {
     "kit": "808",
+    "key": "b",
+    "name": "Kick · bright short",
+    "role": "kick",
+    "file": "808/key-98.wav",
+    "source": "https://raw.githubusercontent.com/tidalcycles/sounds-tr808-fischer/85fbecf1bec32553395625ea659e2a56dfd7c0e1/bd8/BD1000.WAV",
+    "bytes": 22096,
+    "sha256": "c126eacc7ceaaf29fb9e7155a53a07ce0d2014c0795bc1ddcd28ea78ca02bac9"
+  },
+  {
+    "kit": "808",
+    "key": "k",
+    "name": "Kick · dark long",
+    "role": "kick",
+    "file": "808/key-107.wav",
+    "source": "https://raw.githubusercontent.com/tidalcycles/sounds-tr808-fischer/85fbecf1bec32553395625ea659e2a56dfd7c0e1/bd8/BD0010.WAV",
+    "bytes": 264646,
+    "sha256": "2929f825db405543f8f1e1ef09e368d83421f030e249cb6a17e5a5ff34a882d6"
+  },
+  {
+    "kit": "808",
+    "key": "0",
+    "name": "Kick · dark short",
+    "role": "kick",
+    "file": "808/key-48.wav",
+    "source": "https://raw.githubusercontent.com/tidalcycles/sounds-tr808-fischer/85fbecf1bec32553395625ea659e2a56dfd7c0e1/bd8/BD0000.WAV",
+    "bytes": 22096,
+    "sha256": "7bdb70b44c216ffd4b4188d49a868532f462c180fab1f087b0e75b5a9f40fa07"
+  },
+  {
+    "kit": "808",
+    "key": "1",
+    "name": "Kick · bright long",
+    "role": "kick",
+    "file": "808/key-49.wav",
+    "source": "https://raw.githubusercontent.com/tidalcycles/sounds-tr808-fischer/85fbecf1bec32553395625ea659e2a56dfd7c0e1/bd8/BD1010.WAV",
+    "bytes": 264646,
+    "sha256": "e26156c1af24c999f2b817bfacbadd78b9c639a9b8439743bbea4378c54ff8e5"
+  },
+  {
+    "kit": "808",
+    "key": "s",
+    "name": "Snare · dark medium",
     "role": "snare",
-    "file": "808/snare.wav",
+    "file": "808/key-115.wav",
     "source": "https://raw.githubusercontent.com/tidalcycles/sounds-tr808-fischer/85fbecf1bec32553395625ea659e2a56dfd7c0e1/sd8/SD0050.WAV",
-    "bytes": 44146
+    "bytes": 44146,
+    "sha256": "667eca1430ac5f692544613ad72bfc82e9f4ba3be461d96c16cc437156d0943e"
   },
   {
     "kit": "808",
+    "key": "d",
+    "name": "Snare · bright dry",
+    "role": "snare",
+    "file": "808/key-100.wav",
+    "source": "https://raw.githubusercontent.com/tidalcycles/sounds-tr808-fischer/85fbecf1bec32553395625ea659e2a56dfd7c0e1/sd8/SD1000.WAV",
+    "bytes": 22094,
+    "sha256": "526e490de4b496334f281f7031d2d755ec60764fe3050f49f9579ffa3517f60c"
+  },
+  {
+    "kit": "808",
+    "key": "f",
+    "name": "Snare · dark buzzy",
+    "role": "snare",
+    "file": "808/key-102.wav",
+    "source": "https://raw.githubusercontent.com/tidalcycles/sounds-tr808-fischer/85fbecf1bec32553395625ea659e2a56dfd7c0e1/sd8/SD0010.WAV",
+    "bytes": 44146,
+    "sha256": "117e5a78df3ffa0735f18b5889793f95080dfeffe574b742607a02de6183d497"
+  },
+  {
+    "kit": "808",
+    "key": "2",
+    "name": "Snare · dark dry",
+    "role": "snare",
+    "file": "808/key-50.wav",
+    "source": "https://raw.githubusercontent.com/tidalcycles/sounds-tr808-fischer/85fbecf1bec32553395625ea659e2a56dfd7c0e1/sd8/SD0000.WAV",
+    "bytes": 22094,
+    "sha256": "06a671f38ccfa6825fb80597e3423c96d873ec8ee8dc96232f8f53d83fd4650f"
+  },
+  {
+    "kit": "808",
+    "key": "3",
+    "name": "Snare · bright buzzy",
+    "role": "snare",
+    "file": "808/key-51.wav",
+    "source": "https://raw.githubusercontent.com/tidalcycles/sounds-tr808-fischer/85fbecf1bec32553395625ea659e2a56dfd7c0e1/sd8/SD1010.WAV",
+    "bytes": 44146,
+    "sha256": "8ffd64829a047bc0e45dbf5ce0250adae38cefd9c9e6a577a5bd28090e5f4dc9"
+  },
+  {
+    "kit": "808",
+    "key": "h",
+    "name": "Closed hi-hat",
     "role": "closed-hat",
-    "file": "808/closed-hat.wav",
+    "file": "808/key-104.wav",
     "source": "https://raw.githubusercontent.com/tidalcycles/sounds-tr808-fischer/85fbecf1bec32553395625ea659e2a56dfd7c0e1/ch8/CH.WAV",
-    "bytes": 22094
+    "bytes": 22094,
+    "sha256": "c9f30ff2b4d73b03f41960e504e03c54e9a59697af666fe4d155bab9cd1ccae6"
   },
   {
     "kit": "808",
+    "key": "c",
+    "name": "Claves",
+    "role": "percussion",
+    "file": "808/key-99.wav",
+    "source": "https://raw.githubusercontent.com/tidalcycles/sounds-tr808-fischer/85fbecf1bec32553395625ea659e2a56dfd7c0e1/cl8/CL.WAV",
+    "bytes": 22094,
+    "sha256": "4f5b72674791ce133a2ad3bd40c9a0e628bad9062eb8f04de27f59dcc8ce5d46"
+  },
+  {
+    "kit": "808",
+    "key": "i",
+    "name": "Maracas",
+    "role": "percussion",
+    "file": "808/key-105.wav",
+    "source": "https://raw.githubusercontent.com/tidalcycles/sounds-tr808-fischer/85fbecf1bec32553395625ea659e2a56dfd7c0e1/ma8/MA.WAV",
+    "bytes": 22094,
+    "sha256": "7b17cc2973fe55233c6ece7b341adb4d04a44b12527582102591c8981a586451"
+  },
+  {
+    "kit": "808",
+    "key": "x",
+    "name": "Hand clap",
+    "role": "percussion",
+    "file": "808/key-120.wav",
+    "source": "https://raw.githubusercontent.com/tidalcycles/sounds-tr808-fischer/85fbecf1bec32553395625ea659e2a56dfd7c0e1/cp8/CP.WAV",
+    "bytes": 176446,
+    "sha256": "376429bb81cb48d1f392a11cd066c32ffb7883d445b2488704ea52e46bb08286"
+  },
+  {
+    "kit": "808",
+    "key": "4",
+    "name": "High conga · low tune",
+    "role": "percussion",
+    "file": "808/key-52.wav",
+    "source": "https://raw.githubusercontent.com/tidalcycles/sounds-tr808-fischer/85fbecf1bec32553395625ea659e2a56dfd7c0e1/hc8/HC00.WAV",
+    "bytes": 44146,
+    "sha256": "e1c3328d5943e08bbb1204283966e49764329809c5f93e759140db9cade12547"
+  },
+  {
+    "kit": "808",
+    "key": "5",
+    "name": "High conga · high tune",
+    "role": "percussion",
+    "file": "808/key-53.wav",
+    "source": "https://raw.githubusercontent.com/tidalcycles/sounds-tr808-fischer/85fbecf1bec32553395625ea659e2a56dfd7c0e1/hc8/HC10.WAV",
+    "bytes": 44146,
+    "sha256": "21a3b7dfb1d87e8a5f83c645b85adf7e6aca53654b08f460f226c2cff0ce3b67"
+  },
+  {
+    "kit": "808",
+    "key": "o",
+    "name": "Open hi-hat · short",
     "role": "open-hat",
-    "file": "808/open-hat.wav",
+    "file": "808/key-111.wav",
     "source": "https://raw.githubusercontent.com/tidalcycles/sounds-tr808-fischer/85fbecf1bec32553395625ea659e2a56dfd7c0e1/oh8/OH00.WAV",
-    "bytes": 22096
+    "bytes": 22096,
+    "sha256": "d8ca0f2176aae52143c9f239237a680aab997e566196466a3db64199c8fbe9c2"
   },
   {
     "kit": "808",
+    "key": "u",
+    "name": "Open hi-hat · long",
+    "role": "open-hat",
+    "file": "808/key-117.wav",
+    "source": "https://raw.githubusercontent.com/tidalcycles/sounds-tr808-fischer/85fbecf1bec32553395625ea659e2a56dfd7c0e1/oh8/OH10.WAV",
+    "bytes": 66196,
+    "sha256": "1cfdc86ad44525bbef78b2db0bf860dc5abc8fe53636af7920267410666ff782"
+  },
+  {
+    "kit": "808",
+    "key": "6",
+    "name": "Open hi-hat · medium",
+    "role": "open-hat",
+    "file": "808/key-54.wav",
+    "source": "https://raw.githubusercontent.com/tidalcycles/sounds-tr808-fischer/85fbecf1bec32553395625ea659e2a56dfd7c0e1/oh8/OH50.WAV",
+    "bytes": 44146,
+    "sha256": "84ae3220fab2396380fb6ba6032bcec7c55a6d3f621d30a13c11fdeaa099aff7"
+  },
+  {
+    "kit": "808",
+    "key": "j",
+    "name": "Low tom · low tune",
     "role": "low-tom",
-    "file": "808/low-tom.wav",
+    "file": "808/key-106.wav",
     "source": "https://raw.githubusercontent.com/tidalcycles/sounds-tr808-fischer/85fbecf1bec32553395625ea659e2a56dfd7c0e1/lt8/LT00.WAV",
-    "bytes": 88246
+    "bytes": 88246,
+    "sha256": "a324073813003398a3ed92c3e569ac80f6ff50d82253f95b2b87a3f268f6951b"
   },
   {
     "kit": "808",
+    "key": "m",
+    "name": "Low tom · high tune",
+    "role": "low-tom",
+    "file": "808/key-109.wav",
+    "source": "https://raw.githubusercontent.com/tidalcycles/sounds-tr808-fischer/85fbecf1bec32553395625ea659e2a56dfd7c0e1/lt8/LT10.WAV",
+    "bytes": 88246,
+    "sha256": "b5f6c19876ce23539cd9b943f5d96c9284b0f95d6317e15e3f12b59f97f048df"
+  },
+  {
+    "kit": "808",
+    "key": "z",
+    "name": "Low conga · low tune",
+    "role": "percussion",
+    "file": "808/key-122.wav",
+    "source": "https://raw.githubusercontent.com/tidalcycles/sounds-tr808-fischer/85fbecf1bec32553395625ea659e2a56dfd7c0e1/lc8/LC00.WAV",
+    "bytes": 44146,
+    "sha256": "a00777a5d2831b16bed9698e697d786f38855ecdb2288c5cc80b682b03d8137d"
+  },
+  {
+    "kit": "808",
+    "key": "7",
+    "name": "Low conga · high tune",
+    "role": "percussion",
+    "file": "808/key-55.wav",
+    "source": "https://raw.githubusercontent.com/tidalcycles/sounds-tr808-fischer/85fbecf1bec32553395625ea659e2a56dfd7c0e1/lc8/LC10.WAV",
+    "bytes": 44146,
+    "sha256": "8c8e0224afb3f2fd2a8f2e144994a4c07b6556a7c7b457d23df2e33645e8ae4f"
+  },
+  {
+    "kit": "808",
+    "key": "g",
+    "name": "Mid tom · low tune",
     "role": "mid-tom",
-    "file": "808/mid-tom.wav",
+    "file": "808/key-103.wav",
     "source": "https://raw.githubusercontent.com/tidalcycles/sounds-tr808-fischer/85fbecf1bec32553395625ea659e2a56dfd7c0e1/mt8/MT00.WAV",
-    "bytes": 88246
+    "bytes": 88246,
+    "sha256": "b649329207aec14fb7880d88a824526fc706ad1e8293b2fd9de5115be01530c0"
   },
   {
     "kit": "808",
+    "key": "n",
+    "name": "Mid tom · high tune",
+    "role": "mid-tom",
+    "file": "808/key-110.wav",
+    "source": "https://raw.githubusercontent.com/tidalcycles/sounds-tr808-fischer/85fbecf1bec32553395625ea659e2a56dfd7c0e1/mt8/MT10.WAV",
+    "bytes": 88246,
+    "sha256": "50b81a0a9ab88871fd1a4eb98e642b9df12deae7beb826938c86c6b847636646"
+  },
+  {
+    "kit": "808",
+    "key": "v",
+    "name": "Mid conga · low tune",
+    "role": "percussion",
+    "file": "808/key-118.wav",
+    "source": "https://raw.githubusercontent.com/tidalcycles/sounds-tr808-fischer/85fbecf1bec32553395625ea659e2a56dfd7c0e1/mc8/MC00.WAV",
+    "bytes": 44146,
+    "sha256": "3c4857ddc26e4d5de508bf19070398d05efcf64ea01d562c9022f91868d4af19"
+  },
+  {
+    "kit": "808",
+    "key": "8",
+    "name": "Mid conga · high tune",
+    "role": "percussion",
+    "file": "808/key-56.wav",
+    "source": "https://raw.githubusercontent.com/tidalcycles/sounds-tr808-fischer/85fbecf1bec32553395625ea659e2a56dfd7c0e1/mc8/MC10.WAV",
+    "bytes": 44146,
+    "sha256": "e0b10cfaac26f35753000b81251663655328adad680be13676c6425840ae2334"
+  },
+  {
+    "kit": "808",
+    "key": "e",
+    "name": "High tom · low tune",
     "role": "high-tom",
-    "file": "808/high-tom.wav",
+    "file": "808/key-101.wav",
     "source": "https://raw.githubusercontent.com/tidalcycles/sounds-tr808-fischer/85fbecf1bec32553395625ea659e2a56dfd7c0e1/ht8/HT00.WAV",
-    "bytes": 88246
+    "bytes": 88246,
+    "sha256": "96d0de026d7421e05d35b07905ff85072985db1d6fc1eea286c00aaa1836ff97"
   },
   {
     "kit": "808",
+    "key": "t",
+    "name": "High tom · high tune",
+    "role": "high-tom",
+    "file": "808/key-116.wav",
+    "source": "https://raw.githubusercontent.com/tidalcycles/sounds-tr808-fischer/85fbecf1bec32553395625ea659e2a56dfd7c0e1/ht8/HT10.WAV",
+    "bytes": 88246,
+    "sha256": "aef7d50fc43965c35ef2fde924b19f3fa4be08a9132d0095514d0fae4b5c9202"
+  },
+  {
+    "kit": "808",
+    "key": "y",
+    "name": "High conga · mid tune",
+    "role": "percussion",
+    "file": "808/key-121.wav",
+    "source": "https://raw.githubusercontent.com/tidalcycles/sounds-tr808-fischer/85fbecf1bec32553395625ea659e2a56dfd7c0e1/hc8/HC50.WAV",
+    "bytes": 44146,
+    "sha256": "ee4354b1fb79126e455a5343161f5c1e78165874df8a74dece78cbb5b6964af9"
+  },
+  {
+    "kit": "808",
+    "key": "9",
+    "name": "High tom · mid tune",
+    "role": "high-tom",
+    "file": "808/key-57.wav",
+    "source": "https://raw.githubusercontent.com/tidalcycles/sounds-tr808-fischer/85fbecf1bec32553395625ea659e2a56dfd7c0e1/ht8/HT50.WAV",
+    "bytes": 88246,
+    "sha256": "7e0b9eddd95379298aacbf1520929f586191788d9e0841ad752d84bdde910d88"
+  },
+  {
+    "kit": "808",
+    "key": "q",
+    "name": "Cymbal · dark short",
     "role": "crash",
-    "file": "808/crash.wav",
+    "file": "808/key-113.wav",
     "source": "https://raw.githubusercontent.com/tidalcycles/sounds-tr808-fischer/85fbecf1bec32553395625ea659e2a56dfd7c0e1/cy8/CY0000.WAV",
-    "bytes": 132346
+    "bytes": 132346,
+    "sha256": "02f21af068c08f2024fe279fa935329801dee05954c11f07ece1a83bb9c32d6b"
   },
   {
     "kit": "808",
-    "role": "rim",
-    "file": "808/rim.wav",
-    "source": "https://raw.githubusercontent.com/tidalcycles/sounds-tr808-fischer/85fbecf1bec32553395625ea659e2a56dfd7c0e1/rs8/RS.WAV",
-    "bytes": 22096
+    "key": "!",
+    "name": "Cymbal · bright long",
+    "role": "crash",
+    "file": "808/key-33.wav",
+    "source": "https://raw.githubusercontent.com/tidalcycles/sounds-tr808-fischer/85fbecf1bec32553395625ea659e2a56dfd7c0e1/cy8/CY1010.WAV",
+    "bytes": 352846,
+    "sha256": "0d49c0a19edda77869d0ad1b3a4a6c583bf37e1260ca2974f5b6ec06029ae7aa"
   },
   {
     "kit": "808",
-    "role": "ride",
-    "file": "808/ride.wav",
+    "key": "w",
+    "name": "Cowbell",
+    "role": "percussion",
+    "file": "808/key-119.wav",
     "source": "https://raw.githubusercontent.com/tidalcycles/sounds-tr808-fischer/85fbecf1bec32553395625ea659e2a56dfd7c0e1/cb8/CB.WAV",
-    "bytes": 132346
+    "bytes": 132346,
+    "sha256": "1468cbd6c75a1f23b50a15968796c256c74893a35aa3824c6663db82c271f28d"
+  },
+  {
+    "kit": "808",
+    "key": "l",
+    "name": "Rimshot",
+    "role": "rim",
+    "file": "808/key-108.wav",
+    "source": "https://raw.githubusercontent.com/tidalcycles/sounds-tr808-fischer/85fbecf1bec32553395625ea659e2a56dfd7c0e1/rs8/RS.WAV",
+    "bytes": 22096,
+    "sha256": "20d5cd385c0f8c3a24bbfe78c2e2747776841ede6185bc0fe93f97f0b455b89c"
+  },
+  {
+    "kit": "808",
+    "key": "r",
+    "name": "Cymbal · bright short",
+    "role": "crash",
+    "file": "808/key-114.wav",
+    "source": "https://raw.githubusercontent.com/tidalcycles/sounds-tr808-fischer/85fbecf1bec32553395625ea659e2a56dfd7c0e1/cy8/CY1000.WAV",
+    "bytes": 132346,
+    "sha256": "3f8a1f546869d6a3cefca44c9296c0971163e54e80380fa39501fc44f1079ed7"
+  },
+  {
+    "kit": "808",
+    "key": "p",
+    "name": "Cymbal · dark long",
+    "role": "crash",
+    "file": "808/key-112.wav",
+    "source": "https://raw.githubusercontent.com/tidalcycles/sounds-tr808-fischer/85fbecf1bec32553395625ea659e2a56dfd7c0e1/cy8/CY0010.WAV",
+    "bytes": 352846,
+    "sha256": "5e90c2d127809e66a9d6ccbb41629df877ff7feb105e3f7d6356cc4a83e9a882"
+  },
+  {
+    "kit": "808",
+    "key": ".",
+    "name": "Kick · mid-tone short",
+    "role": "kick",
+    "file": "808/key-46.wav",
+    "source": "https://raw.githubusercontent.com/tidalcycles/sounds-tr808-fischer/85fbecf1bec32553395625ea659e2a56dfd7c0e1/bd8/BD5000.WAV",
+    "bytes": 22096,
+    "sha256": "1797f9240b5eb02b0c5e97e65ea22c85545cd99903e2789f0f860ee7da369085"
+  },
+  {
+    "kit": "808",
+    "key": ",",
+    "name": "Snare · mid-tone dry",
+    "role": "snare",
+    "file": "808/key-44.wav",
+    "source": "https://raw.githubusercontent.com/tidalcycles/sounds-tr808-fischer/85fbecf1bec32553395625ea659e2a56dfd7c0e1/sd8/SD5000.WAV",
+    "bytes": 22096,
+    "sha256": "8a6c2425b6d65f4a0790d46a356b9b291e92b84ff810853fda549c1cbbb0d375"
+  },
+  {
+    "kit": "acoustic",
+    "key": "a",
+    "name": "Kick · damped",
+    "role": "kick",
+    "file": "acoustic/key-97.flac",
+    "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/kick_24/kick/kick/k_vl10_rr1.flac",
+    "bytes": 39943,
+    "sha256": "a43a2124efb24f21f62a79f2fa1eab99dbae800aae111e9da124830703b06720"
+  },
+  {
+    "kit": "acoustic",
+    "key": "b",
+    "name": "Kick · ringing",
+    "role": "kick",
+    "file": "acoustic/key-98.flac",
+    "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/kick_24_nodamp/kick/kick/k_nodamp_vl3_rr1.flac",
+    "bytes": 79455,
+    "sha256": "f916311f7b025b4f91f0eb5441a33fa7c9aa71bcef9f7a654a71cafefde13416"
+  },
+  {
+    "kit": "acoustic",
+    "key": "k",
+    "name": "Kick · light beater",
+    "role": "kick",
+    "file": "acoustic/key-107.flac",
+    "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/kick_24/kick/kick/k_vl3_rr1.flac",
+    "bytes": 38476,
+    "sha256": "19a4099fe35758cdc22479975c6cd9f619ed8ee2cc72601c728badaf93712a21"
+  },
+  {
+    "kit": "acoustic",
+    "key": "0",
+    "name": "Kick hoop click",
+    "role": "rim",
+    "file": "acoustic/key-48.flac",
+    "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/kick_24/rc/cl/k_rc_vl3_rr1.flac",
+    "bytes": 32288,
+    "sha256": "305fc3294683be1b9bea98bea5649112458a7ec7df34f0e3c86d8f627a1879fd"
+  },
+  {
+    "kit": "acoustic",
+    "key": "1",
+    "name": "Kick shell click",
+    "role": "rim",
+    "file": "acoustic/key-49.flac",
+    "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/kick_24/sc/cl/k_sc_vl3_rr1.flac",
+    "bytes": 37658,
+    "sha256": "06498e660ac01d5fe6b874bdab577f885c3f569ac2f6fb89a7469f476fbba100"
+  },
+  {
+    "kit": "acoustic",
+    "key": "s",
+    "name": "Snare · center",
+    "role": "snare",
+    "file": "acoustic/key-115.flac",
+    "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/snare_14/center/top/sn_center_vl3_rr1.flac",
+    "bytes": 42663,
+    "sha256": "800dd809805bf6668a9286939c5761c8a11157ece22ab3ad1f0007d404c7dfca"
+  },
+  {
+    "kit": "acoustic",
+    "key": "d",
+    "name": "Snare · rimshot",
+    "role": "snare",
+    "file": "acoustic/key-100.flac",
+    "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/snare_14/rimshot/top/sn_rims_vl3_rr1.flac",
+    "bytes": 39738,
+    "sha256": "db6c208aa4bdb51cee22e23ba3f64ca5c1218c353f805c7ad9c8e421a26959b5"
+  },
+  {
+    "kit": "acoustic",
+    "key": "f",
+    "name": "Snare · edge",
+    "role": "snare",
+    "file": "acoustic/key-102.flac",
+    "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/snare_14/edge/top/sn_edge_vl3_rr1.flac",
+    "bytes": 36304,
+    "sha256": "e59e979d380972d787ed69cf2bd983d90e289634736d2c9a616b3fe35ee388b7"
+  },
+  {
+    "kit": "acoustic",
+    "key": "2",
+    "name": "Snare · brush",
+    "role": "snare",
+    "file": "acoustic/key-50.flac",
+    "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/snare_14/brush/top/sn_b_vl3_rr1.flac",
+    "bytes": 32160,
+    "sha256": "4891c3f76a611dcd4804df7f543bec746c2da946ae62cc6850b6cfbf6ea0701f"
+  },
+  {
+    "kit": "acoustic",
+    "key": "3",
+    "name": "Snare · mallet",
+    "role": "snare",
+    "file": "acoustic/key-51.flac",
+    "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/snare_14/mallet/top/sn_m_vl3_rr1.flac",
+    "bytes": 37650,
+    "sha256": "ed052a55c2bd88047eeb3ed7c831557301684f6f5915fcdc3ef4d1533a4e84bd"
+  },
+  {
+    "kit": "acoustic",
+    "key": "h",
+    "name": "Hi-hat · closed tip",
+    "role": "closed-hat",
+    "file": "acoustic/key-104.flac",
+    "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/hihat_14/cl/cl/ht_cl_vl3_rr1.flac",
+    "bytes": 37971,
+    "sha256": "ce3d062d8de07cb3f273e84fbb8b9387fe951e21284cdceb8a0ec1e71cbc6bdc"
+  },
+  {
+    "kit": "acoustic",
+    "key": "c",
+    "name": "Hi-hat · tight tip",
+    "role": "closed-hat",
+    "file": "acoustic/key-99.flac",
+    "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/hihat_14/tc/cl/ht_tc_vl3_rr1.flac",
+    "bytes": 31203,
+    "sha256": "0bf3d29ed1617b10fe0cfaf79f4fc5c608ce314ede189f0633117caffe17f046"
+  },
+  {
+    "kit": "acoustic",
+    "key": "i",
+    "name": "Hi-hat · closed shank",
+    "role": "closed-hat",
+    "file": "acoustic/key-105.flac",
+    "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/hihat_14/cl_s/cl/ht_cl_s_vl3_rr1.flac",
+    "bytes": 48079,
+    "sha256": "8e1f4c22935a4c39e7f1dd76a30a944716186b0b3ba89cf355eecc4a92bc3e20"
+  },
+  {
+    "kit": "acoustic",
+    "key": "x",
+    "name": "Hi-hat · pedal chick",
+    "role": "closed-hat",
+    "file": "acoustic/key-120.flac",
+    "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/hihat_14/chik/cl/ht_chik_vl3_rr1.flac",
+    "bytes": 45029,
+    "sha256": "4b9d338991e950e36d6f8de26a345e6ec34c76f2e308db7daed8f60609cdddd0"
+  },
+  {
+    "kit": "acoustic",
+    "key": "4",
+    "name": "Hi-hat · closed brush",
+    "role": "closed-hat",
+    "file": "acoustic/key-52.flac",
+    "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/hihat_14/cl_brush/cl/ht_cl_b_vl3_rr1.flac",
+    "bytes": 40092,
+    "sha256": "a984fcb904bf6a77bfe2b9eff5759ccab096031b56ea01a350303f2178811be9"
+  },
+  {
+    "kit": "acoustic",
+    "key": "5",
+    "name": "Hi-hat · loose tip",
+    "role": "open-hat",
+    "file": "acoustic/key-53.flac",
+    "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/hihat_14/lc/cl/ht_lc_vl3_rr1.flac",
+    "bytes": 56270,
+    "sha256": "63dc07d326e04347d3db9f035ab82a6c701b4943270207204e43f28b9b9d1ff3"
+  },
+  {
+    "kit": "acoustic",
+    "key": "o",
+    "name": "Hi-hat · fully open",
+    "role": "open-hat",
+    "file": "acoustic/key-111.flac",
+    "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/hihat_14/open/cl/ht_open_vl3_rr1.flac",
+    "bytes": 210497,
+    "sha256": "d4a380fc54b9cc724fb567c7d5c3abb4dbd2999340367925f7b7e41100f6ed27"
+  },
+  {
+    "kit": "acoustic",
+    "key": "u",
+    "name": "Hi-hat · half open",
+    "role": "open-hat",
+    "file": "acoustic/key-117.flac",
+    "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/hihat_14/ho/cl/ht_ho_vl3_rr1.flac",
+    "bytes": 126262,
+    "sha256": "f7268f9d3cd0b1152777107ef19b095d767d2c85a9a8936c6d0b4964bc0d3323"
+  },
+  {
+    "kit": "acoustic",
+    "key": "6",
+    "name": "Hi-hat · foot splash",
+    "role": "open-hat",
+    "file": "acoustic/key-54.flac",
+    "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/hihat_14/footspl/cl/ht_footspl_vl3_rr1.flac",
+    "bytes": 382594,
+    "sha256": "7fff5e7c121bf8b678e34215555c2bb4cd0032fa67a953c222d9b6e2e62f5b5a"
+  },
+  {
+    "kit": "acoustic",
+    "key": "j",
+    "name": "18-inch tom · stick",
+    "role": "low-tom",
+    "file": "acoustic/key-106.flac",
+    "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/tom_18/center/cl/t18_vl3_rr1.flac",
+    "bytes": 47031,
+    "sha256": "d55a2251ae2b2527b0794227ed697388378c65e2180d0ee5fcd0e8107d76aff5"
+  },
+  {
+    "kit": "acoustic",
+    "key": "m",
+    "name": "22-inch tom · stick",
+    "role": "low-tom",
+    "file": "acoustic/key-109.flac",
+    "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/tom_22/center/cl/t22_vl3_rr1.flac",
+    "bytes": 59293,
+    "sha256": "bbdeeb1d62ae7b503b6fdd898ba396a3753ea91c49d4acaab4b4f1ef2ee07eb9"
+  },
+  {
+    "kit": "acoustic",
+    "key": "z",
+    "name": "18-inch tom · mallet",
+    "role": "low-tom",
+    "file": "acoustic/key-122.flac",
+    "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/tom_18/mallet/cl/t18_m_vl3_rr1.flac",
+    "bytes": 45023,
+    "sha256": "e71a62e3f150115b3d025cad140d162ca7090d711dab257f78c8c05b01b1b6fa"
+  },
+  {
+    "kit": "acoustic",
+    "key": "7",
+    "name": "18-inch tom · brush",
+    "role": "low-tom",
+    "file": "acoustic/key-55.flac",
+    "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/tom_18/brush/cl/t18_b_vl3_rr1.flac",
+    "bytes": 43645,
+    "sha256": "13cf8ed62d2f64860a14ff6bb0d9fb0256b7fe21b71a070770c35873c5963f62"
+  },
+  {
+    "kit": "acoustic",
+    "key": "g",
+    "name": "15-inch tom · stick",
+    "role": "mid-tom",
+    "file": "acoustic/key-103.flac",
+    "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/tom_15/center/cl/t15_vl3_rr1.flac",
+    "bytes": 46205,
+    "sha256": "e8f26493cb62ac3a17cf9ba923cb6cb51caec9c9f0f3e044df24071f95d916ed"
+  },
+  {
+    "kit": "acoustic",
+    "key": "n",
+    "name": "15-inch tom · mallet",
+    "role": "mid-tom",
+    "file": "acoustic/key-110.flac",
+    "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/tom_15/mallet/cl/t15_m_vl3_rr1.flac",
+    "bytes": 42555,
+    "sha256": "2a542ba81189ab86a1ea7770423a35235f3fd331f2d1af09bc522fa45f46b80d"
+  },
+  {
+    "kit": "acoustic",
+    "key": "v",
+    "name": "15-inch tom · brush",
+    "role": "mid-tom",
+    "file": "acoustic/key-118.flac",
+    "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/tom_15/brush/cl/t15_b_vl3_rr1.flac",
+    "bytes": 40179,
+    "sha256": "a9bb37a9823f533dad88f8aab8a989faad4ca5df947750e67f88f5df68b8b282"
+  },
+  {
+    "kit": "acoustic",
+    "key": "8",
+    "name": "15-inch tom · rim click",
+    "role": "rim",
+    "file": "acoustic/key-56.flac",
+    "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/tom_15/rc/cl/t15_rc_vl3_rr1.flac",
+    "bytes": 44524,
+    "sha256": "5467298b8dcfc807c0f011dcacb3f49a1f93f80e949ddebd47c81fb9313dae77"
+  },
+  {
+    "kit": "acoustic",
+    "key": "e",
+    "name": "14-inch tom · stick",
+    "role": "high-tom",
+    "file": "acoustic/key-101.flac",
+    "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/tom_14/center/cl/t14_vl3_rr1.flac",
+    "bytes": 49303,
+    "sha256": "cb59527327ec38d3ce4afd0723d18d848e64f625b98a393d10c423c6dfbb6f83"
+  },
+  {
+    "kit": "acoustic",
+    "key": "t",
+    "name": "14-inch tom · mallet",
+    "role": "high-tom",
+    "file": "acoustic/key-116.flac",
+    "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/tom_14/mallet/cl/t14_m_vl3_rr1.flac",
+    "bytes": 42256,
+    "sha256": "939e27b1831aeafaccd0109466354fd42c703363588cfa1ab10b538529db94de"
+  },
+  {
+    "kit": "acoustic",
+    "key": "y",
+    "name": "14-inch tom · brush",
+    "role": "high-tom",
+    "file": "acoustic/key-121.flac",
+    "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/tom_14/brush/cl/t14_b_vl3_rr1.flac",
+    "bytes": 39300,
+    "sha256": "cf05c084ee6e81c19095a9407b9dfe1ec1eef6ba556d0d2c0ebede45afdb416a"
+  },
+  {
+    "kit": "acoustic",
+    "key": "9",
+    "name": "14-inch tom · shell click",
+    "role": "rim",
+    "file": "acoustic/key-57.flac",
+    "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/tom_14/sc/cl/t14_sc_vl3_rr1.flac",
+    "bytes": 40243,
+    "sha256": "28e4e88aedd3f460dcd10f42d99dc640ad1e5684a616c42b482a56219a3ed651"
+  },
+  {
+    "kit": "acoustic",
+    "key": "q",
+    "name": "Crash cymbal · stick",
+    "role": "crash",
+    "file": "acoustic/key-113.flac",
+    "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/crash_17/cr/cl/cr_vl3_rr1.flac",
+    "bytes": 325235,
+    "sha256": "051688364f5676960f1721853345ab04b4b0edbc58d399c385979c433170e35c"
+  },
+  {
+    "kit": "acoustic",
+    "key": "!",
+    "name": "China cymbal",
+    "role": "crash",
+    "file": "acoustic/key-33.flac",
+    "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/china_18/cn/cl/cn_vl3_rr1.flac",
+    "bytes": 201862,
+    "sha256": "e9bbc2d32fefd966d931ca51b8e9f9cc660bfe8b6f2f794d9100b25e1531b2a2"
+  },
+  {
+    "kit": "acoustic",
+    "key": "w",
+    "name": "Ride cymbal · bow",
+    "role": "ride",
+    "file": "acoustic/key-119.flac",
+    "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/ride_22/rd/cl/rd_vl3_rr1.flac",
+    "bytes": 308641,
+    "sha256": "52c8721a6987bd1f57873ee4ff04ea346250e3f7daaf20d097fe2b8730074015"
+  },
+  {
+    "kit": "acoustic",
+    "key": "l",
+    "name": "Snare · cross-stick",
+    "role": "rim",
+    "file": "acoustic/key-108.flac",
+    "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/snare_14/sidestick/top/sn_ss_vl3_rr1.flac",
+    "bytes": 42503,
+    "sha256": "c968109e92644a97445ebbefe179f76c87c892fe3c4581adca6240ccb26967d9"
+  },
+  {
+    "kit": "acoustic",
+    "key": "r",
+    "name": "Ride cymbal · bell",
+    "role": "ride",
+    "file": "acoustic/key-114.flac",
+    "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/ride_22/bl/cl/rd_bl_vl3_rr1.flac",
+    "bytes": 214090,
+    "sha256": "1866d2922a8c588435d83ab9e0abf8ebafc1abc0c7355aa0c60845413ce96085"
+  },
+  {
+    "kit": "acoustic",
+    "key": "p",
+    "name": "Sizzle ride · bow",
+    "role": "ride",
+    "file": "acoustic/key-112.flac",
+    "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/ride_sizzle_19/rd/cl/rds_vl3_rr1.flac",
+    "bytes": 306970,
+    "sha256": "e9642b7fcd8c967bcfda3a41f67e688139773610cb098411768d8f4ca2edbdb7"
+  },
+  {
+    "kit": "acoustic",
+    "key": ".",
+    "name": "Cymbal stack · edge",
+    "role": "crash",
+    "file": "acoustic/key-46.flac",
+    "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/stack_3_layer/ed/cl/st_ed_vl3_rr1.flac",
+    "bytes": 81706,
+    "sha256": "e33ca84ececd2c6894c19425d8474a0cda58310221f3a8f519456778afda8d24"
+  },
+  {
+    "kit": "acoustic",
+    "key": ",",
+    "name": "Crash cymbal · mallet",
+    "role": "crash",
+    "file": "acoustic/key-44.flac",
+    "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/crash_17/mallet/cl/cr_m_vl3_rr1.flac",
+    "bytes": 362306,
+    "sha256": "ea93619b3df8679041a4eda24cf13a0663aa5f9543dcaf81cdb617e744548584"
   }
 ]
