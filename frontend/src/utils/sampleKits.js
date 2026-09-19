@@ -73,5 +73,8 @@ function createKit(folder, name, description) {
   };
 }
 
-export const acousticKit = createKit('acoustic', 'Acoustic Studio', '39 recordings · sticks, brushes, mallets and cymbals');
+export const acousticKit = createKit('acoustic', 'Acoustic Studio', '39 rock hits · hard drums, crashes, china and splash');
+acousticKit.keyHint = 'A = kick · S = snare · O = cowbell · Q = crash · Y = sizzle crash · 7 = splash · Space = rest';
 export const vintageKit = createKit('808', 'Vintage 808', '39 recordings · drums, congas, claps and percussion');
+export const worldKit = createKit('world', 'World Percussion', '39 recordings · congas, bongos, cajón, shakers and bells');
+worldKit.keyHint = 'A = cajón · E = high bongo · L = clap · O = conga · Y = cowbell · Space = rest';

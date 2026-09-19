@@ -1,4 +1,4 @@
-import { acousticKit, vintageKit, loadSample } from './sampleKits';
+import { acousticKit, vintageKit, worldKit, loadSample } from './sampleKits';
 import { getAudioContext, trackSampleSource } from './drumSounds';
 import definitions from './sampleKitDefinitions.json';
 
@@ -32,7 +32,7 @@ test('kits preload distinct recordings; Q/W differ and hats choke', async () => 
   expect(acousticKit.sounds.w.name).toBe('Ride cymbal · bow');
   expect(vintageKit.sounds.w.name).toBe('Cowbell');
   expect(acousticKit.sounds.a.role).toBe(vintageKit.sounds.a.role);
-  acousticKit.sounds.o.play();
+  acousticKit.sounds.u.play();
   const openHat = sources[sources.length - 1];
   acousticKit.sounds.h.play();
   expect(openHat.stop).toHaveBeenCalledTimes(1);
@@ -48,7 +48,7 @@ test('failed downloads can be retried instead of poisoning the cache', async () 
   expect(fetch).toHaveBeenCalledTimes(2);
 });
 
-test.each([['acoustic', acousticKit], ['808', vintageKit]])('%s gives every pad a unique recording in playback and WAV export', async (id, kit) => {
+test.each([['acoustic', acousticKit], ['808', vintageKit], ['world', worldKit]])('%s gives every pad a unique recording in playback and WAV export', async (id, kit) => {
   await kit.preload();
   const entries = Object.entries(kit.sounds).filter(([key]) => key !== ' ');
   expect(entries).toHaveLength(39);

@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="App">
       <InstallApp />
-      <BrowserRouter>
+      <BrowserRouter basename={new URL(process.env.PUBLIC_URL || '/', window.location.origin).pathname}>
         <Routes>
           <Route path="/" element={<TypeDrummer />} />
         </Routes>

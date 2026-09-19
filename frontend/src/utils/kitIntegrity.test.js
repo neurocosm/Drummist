@@ -44,3 +44,14 @@ test('synth kits never reuse a sound recipe with only a volume change', () => {
     expect(new Set(sounds.map(sound => sound.name)).size).toBe(sounds.length);
   }
 });
+
+test('rock palette has no brushes or mallets and retains splash attribution', () => {
+  for (const sound of definitions.acoustic) {
+    expect(`${sound.name} ${sound.source}`).not.toMatch(/brush|mallet/i);
+  }
+  const splash = definitions.acoustic.find(sound => sound.key === '7');
+  expect(splash).toMatchObject({name: '8-inch splash cymbal', role: 'crash', license: 'CC-BY-SA-3.0', author: 'Alexander Holm'});
+  const credits = fs.readFileSync(path.join(process.cwd(), 'public/sample-credits.html'), 'utf8');
+  expect(credits).toContain(splash.author);
+  expect(credits).toContain(splash.licenseUrl);
+});

@@ -14,7 +14,7 @@ export default function InstallApp() {
     let cancelled = false;
     if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
       setStatus('Preparing offline drums…');
-      navigator.serviceWorker.register('/service-worker.js').then(registration => {
+      navigator.serviceWorker.register(`${process.env.PUBLIC_URL || ''}/service-worker.js`).then(registration => {
         if (cancelled) return;
         if (registration.waiting) setUpdate(registration.waiting);
         registration.addEventListener('updatefound', () => {

@@ -10,7 +10,7 @@ const TypeDrummer = () => {
   const [text, setText] = useState('');
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(-1);
-  const [bpm, setBpm] = useState(120);
+  const [bpm, setBpm] = useState(85);
   const [soundPack, setSoundPack] = useState(defaultSoundPack);
   const [readyPack, setReadyPack] = useState(soundPacks[defaultSoundPack]?.preload ? null : defaultSoundPack);
   const [sampleError, setSampleError] = useState('');
@@ -164,10 +164,9 @@ const TypeDrummer = () => {
         </h1>
         <p className="text-sm text-gray-500 mb-6">
           <span className="font-semibold text-gray-700">By BostonyFX</span>
-          <span className="block sm:inline"> <span className="hidden sm:inline">· </span>Inspired by TypeDrummer by Kyle Stetz</span>
         </p>
         <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-          Make music by typing. Each letter triggers a different drum sound. 
+          Make a drum beat by typing. Each letter triggers a different drum sound. 
           Start typing and your beat will automatically loop!
         </p>
       </header>
@@ -214,7 +213,7 @@ const TypeDrummer = () => {
           ) : !kitReady ? (
             <p>Loading {soundPacks[soundPack]?.name}…</p>
           ) : soundPacks[soundPack]?.sampleBased ? (
-            <p>39 distinct recordings · One sound per key · A = kick · S = snare · H = closed hat · O = open hat · Space = rest</p>
+            <p>39 distinct recordings · One sound per key · {soundPacks[soundPack].keyHint || 'A = kick · S = snare · H = closed hat · O = open hat · Space = rest'}</p>
           ) : <p>Legacy synthesized sounds</p>}
         </div>
 
@@ -296,7 +295,8 @@ const TypeDrummer = () => {
 
       {/* Footer */}
       <footer className="text-center py-8 px-4 text-gray-500">
-        <p className="text-xs tracking-wide">Drummist · BostonyFX</p>
+        <p className="text-xs tracking-wide">Drummist · <a href="https://www.instagram.com/tony_bostony/" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 hover:text-blue-600">BostonyFX</a></p>
+        <a href={`${process.env.PUBLIC_URL || ''}/sample-credits.html`} target="_blank" rel="noopener noreferrer" className="inline-block mt-2 text-xs underline underline-offset-4 hover:text-blue-600">Sound credits</a>
       </footer>
     </div>
   );
