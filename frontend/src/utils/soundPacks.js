@@ -1,5 +1,6 @@
 // Different sound packs for TypeDrummer
 import { createDrumSound, createNoiseSound, drumMapping } from './drumSounds';
+import { acousticKit, vintageKit } from './sampleKits';
 
 // Classic 808 Hip-Hop Pack
 export const pack808 = {
@@ -142,15 +143,17 @@ export const packTrap = {
 };
 
 export const soundPacks = {
+  'studio-acoustic': acousticKit,
+  'vintage-808': vintageKit,
   classic: {
-    name: "Classic",
-    description: "Original TypeDrummer sounds",
+    name: "Legacy Synth",
+    description: "The original synth percussion palette",
     sounds: drumMapping
   },
-  '808': pack808,
-  electronic: packElectronic,
-  acoustic: packAcoustic,
-  trap: packTrap
+  '808': { ...pack808, name: '808 (Legacy Synth)', legacy: true },
+  electronic: { ...packElectronic, name: 'Electronic (Legacy Synth)', legacy: true },
+  acoustic: { ...packAcoustic, name: 'Acoustic (Legacy Synth)', legacy: true },
+  trap: { ...packTrap, name: 'Trap (Legacy Synth)', legacy: true }
 };
 
-export const defaultSoundPack = 'classic';
+export const defaultSoundPack = 'studio-acoustic';
