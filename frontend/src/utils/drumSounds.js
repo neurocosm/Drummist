@@ -2,6 +2,23 @@
 // In a real implementation, these would be actual audio files
 
 let globalAudioContext = null;
+const activeSources = new Set();
+
+export const trackSampleSource = (source, cleanup) => {
+  activeSources.add(source);
+  source.onended = () => {
+    activeSources.delete(source);
+    cleanup();
+  };
+};
+
+export const stopDrumSounds = () => {
+  activeSources.forEach(source => {
+    source.stop();
+    source.disconnect();
+  });
+  activeSources.clear();
+};
 
 export const createAudioContext = () => {
   if (typeof window !== 'undefined' && (window.AudioContext || window.webkitAudioContext)) {
@@ -24,6 +41,7 @@ export const getAudioContext = () => {
 export const createDrumSound = (frequency, type = 'sine', duration = 0.1, gain = 0.3) => {
   return {
     name: `${type} ${frequency}Hz`,
+    synthesis: { frequency, type, duration, gain },
     play: () => {
       try {
         const audioContext = getAudioContext();
@@ -50,6 +68,12 @@ export const createDrumSound = (frequency, type = 'sine', duration = 0.1, gain =
         gainNode.gain.setValueAtTime(gain, audioContext.currentTime);
         gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + duration);
         
+        activeSources.add(oscillator);
+        oscillator.onended = () => {
+          activeSources.delete(oscillator);
+          oscillator.disconnect();
+          gainNode.disconnect();
+        };
         oscillator.start(audioContext.currentTime);
         oscillator.stop(audioContext.currentTime + duration);
         
@@ -65,6 +89,7 @@ export const createDrumSound = (frequency, type = 'sine', duration = 0.1, gain =
 export const createNoiseSound = (filterFreq, duration = 0.1, gain = 0.2) => {
   return {
     name: `Noise ${filterFreq}Hz`,
+    synthesis: { filterFreq, type: 'noise', duration, gain },
     play: () => {
       try {
         const audioContext = getAudioContext();
@@ -103,6 +128,13 @@ export const createNoiseSound = (filterFreq, duration = 0.1, gain = 0.2) => {
         filter.connect(gainNode);
         gainNode.connect(audioContext.destination);
         
+        activeSources.add(noise);
+        noise.onended = () => {
+          activeSources.delete(noise);
+          noise.disconnect();
+          filter.disconnect();
+          gainNode.disconnect();
+        };
         noise.start(audioContext.currentTime);
         noise.stop(audioContext.currentTime + duration);
         

@@ -1,0 +1,142 @@
+[
+  {
+    "kit": "acoustic",
+    "role": "kick",
+    "file": "acoustic/kick.flac",
+    "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/kick_24/tc/cl/k_tc_vl3_rr1.flac",
+    "bytes": 39664
+  },
+  {
+    "kit": "acoustic",
+    "role": "snare",
+    "file": "acoustic/snare.flac",
+    "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/snare_14/center/top/sn_center_vl3_rr1.flac",
+    "bytes": 42663
+  },
+  {
+    "kit": "acoustic",
+    "role": "closed-hat",
+    "file": "acoustic/closed-hat.flac",
+    "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/hihat_14/cl/cl/ht_cl_vl3_rr1.flac",
+    "bytes": 37971
+  },
+  {
+    "kit": "acoustic",
+    "role": "open-hat",
+    "file": "acoustic/open-hat.flac",
+    "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/hihat_14/open/cl/ht_open_vl3_rr1.flac",
+    "bytes": 210497
+  },
+  {
+    "kit": "acoustic",
+    "role": "low-tom",
+    "file": "acoustic/low-tom.flac",
+    "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/tom_18/center/cl/t18_vl3_rr1.flac",
+    "bytes": 47031
+  },
+  {
+    "kit": "acoustic",
+    "role": "mid-tom",
+    "file": "acoustic/mid-tom.flac",
+    "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/tom_15/center/cl/t15_vl3_rr1.flac",
+    "bytes": 46205
+  },
+  {
+    "kit": "acoustic",
+    "role": "high-tom",
+    "file": "acoustic/high-tom.flac",
+    "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/tom_14/center/cl/t14_vl3_rr1.flac",
+    "bytes": 49303
+  },
+  {
+    "kit": "acoustic",
+    "role": "crash",
+    "file": "acoustic/crash.flac",
+    "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/crash_17/cr/cl/cr_vl3_rr1.flac",
+    "bytes": 325235
+  },
+  {
+    "kit": "acoustic",
+    "role": "rim",
+    "file": "acoustic/rim.flac",
+    "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/snare_14/sidestick/top/sn_ss_vl3_rr1.flac",
+    "bytes": 42503
+  },
+  {
+    "kit": "acoustic",
+    "role": "ride",
+    "file": "acoustic/ride.flac",
+    "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.big-rusty-drums/f07ce00df34a46b6b08375be56fe116cf15782bc/Samples/ride_22/rd/cl/rd_vl3_rr1.flac",
+    "bytes": 308641
+  },
+  {
+    "kit": "808",
+    "role": "kick",
+    "file": "808/kick.wav",
+    "source": "https://raw.githubusercontent.com/tidalcycles/sounds-tr808-fischer/85fbecf1bec32553395625ea659e2a56dfd7c0e1/bd8/BD0050.WAV",
+    "bytes": 132346
+  },
+  {
+    "kit": "808",
+    "role": "snare",
+    "file": "808/snare.wav",
+    "source": "https://raw.githubusercontent.com/tidalcycles/sounds-tr808-fischer/85fbecf1bec32553395625ea659e2a56dfd7c0e1/sd8/SD0050.WAV",
+    "bytes": 44146
+  },
+  {
+    "kit": "808",
+    "role": "closed-hat",
+    "file": "808/closed-hat.wav",
+    "source": "https://raw.githubusercontent.com/tidalcycles/sounds-tr808-fischer/85fbecf1bec32553395625ea659e2a56dfd7c0e1/ch8/CH.WAV",
+    "bytes": 22094
+  },
+  {
+    "kit": "808",
+    "role": "open-hat",
+    "file": "808/open-hat.wav",
+    "source": "https://raw.githubusercontent.com/tidalcycles/sounds-tr808-fischer/85fbecf1bec32553395625ea659e2a56dfd7c0e1/oh8/OH00.WAV",
+    "bytes": 22096
+  },
+  {
+    "kit": "808",
+    "role": "low-tom",
+    "file": "808/low-tom.wav",
+    "source": "https://raw.githubusercontent.com/tidalcycles/sounds-tr808-fischer/85fbecf1bec32553395625ea659e2a56dfd7c0e1/lt8/LT00.WAV",
+    "bytes": 88246
+  },
+  {
+    "kit": "808",
+    "role": "mid-tom",
+    "file": "808/mid-tom.wav",
+    "source": "https://raw.githubusercontent.com/tidalcycles/sounds-tr808-fischer/85fbecf1bec32553395625ea659e2a56dfd7c0e1/mt8/MT00.WAV",
+    "bytes": 88246
+  },
+  {
+    "kit": "808",
+    "role": "high-tom",
+    "file": "808/high-tom.wav",
+    "source": "https://raw.githubusercontent.com/tidalcycles/sounds-tr808-fischer/85fbecf1bec32553395625ea659e2a56dfd7c0e1/ht8/HT00.WAV",
+    "bytes": 88246
+  },
+  {
+    "kit": "808",
+    "role": "crash",
+    "file": "808/crash.wav",
+    "source": "https://raw.githubusercontent.com/tidalcycles/sounds-tr808-fischer/85fbecf1bec32553395625ea659e2a56dfd7c0e1/cy8/CY0000.WAV",
+    "bytes": 132346
+  },
+  {
+    "kit": "808",
+    "role": "rim",
+    "file": "808/rim.wav",
+    "source": "https://raw.githubusercontent.com/tidalcycles/sounds-tr808-fischer/85fbecf1bec32553395625ea659e2a56dfd7c0e1/rs8/RS.WAV",
+    "bytes": 22096
+  },
+  {
+    "kit": "808",
+    "role": "ride",
+    "file": "808/ride.wav",
+    "source": "https://raw.githubusercontent.com/tidalcycles/sounds-tr808-fischer/85fbecf1bec32553395625ea659e2a56dfd7c0e1/cb8/CB.WAV",
+    "bytes": 132346
+  }
+]

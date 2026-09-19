@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { Button } from './ui/button';
 import { Card } from './ui/card';
 import { Play, Pause, Square, RotateCcw, Volume2 } from 'lucide-react';
-import { drumMapping, getAudioContext } from '../utils/drumSounds';
+import { drumMapping, getAudioContext, stopDrumSounds } from '../utils/drumSounds';
 import { soundPacks, defaultSoundPack } from '../utils/soundPacks';
 import BeatControls from './BeatControls';
 
@@ -12,11 +12,32 @@ const TypeDrummer = () => {
   const [currentIndex, setCurrentIndex] = useState(-1);
   const [bpm, setBpm] = useState(120);
   const [soundPack, setSoundPack] = useState(defaultSoundPack);
-  const audioContextRef = useRef(null);
-  const intervalRef = useRef(null);
+  const [readyPack, setReadyPack] = useState(soundPacks[defaultSoundPack]?.preload ? null : defaultSoundPack);
+  const [sampleError, setSampleError] = useState('');
+  const [loadAttempt, setLoadAttempt] = useState(0);
+  const kitReady = readyPack === soundPack;
+  const nextIndexRef = useRef(0);
+  const playbackGeneration = useRef(0);
   
   // Calculate beat interval based on BPM
   const beatInterval = (60 / bpm / 4) * 1000; // 16th notes
+
+  useEffect(() => {
+    let cancelled = false;
+    setSampleError('');
+    const pack = soundPacks[soundPack];
+    if (!pack?.preload) {
+      setReadyPack(soundPack);
+      return;
+    }
+    setReadyPack(null);
+    pack.preload().then(() => {
+      if (!cancelled) setReadyPack(soundPack);
+    }).catch(() => {
+      if (!cancelled) setSampleError('Could not load this kit. Check your connection and try again.');
+    });
+    return () => { cancelled = true; };
+  }, [soundPack, loadAttempt]);
 
   // Get current sound mapping based on selected pack
   const getCurrentSounds = useCallback(() => {
@@ -26,13 +47,9 @@ const TypeDrummer = () => {
     return soundPacks[soundPack]?.sounds || drumMapping;
   }, [soundPack]);
 
-  // Initialize audio context
-  useEffect(() => {
-    // Just initialize, don't close it
-    getAudioContext();
-  }, []);
-
   const playDrumSound = useCallback(async (char) => {
+    if (!kitReady) return;
+    const generation = playbackGeneration.current;
     const currentSounds = getCurrentSounds();
     const drumSound = currentSounds[char.toLowerCase()] || currentSounds[' '];
     if (drumSound && drumSound.play) {
@@ -42,65 +59,40 @@ const TypeDrummer = () => {
         if (audioContext && audioContext.state === 'suspended') {
           await audioContext.resume();
         }
-        drumSound.play();
+        if (generation === playbackGeneration.current) drumSound.play();
       } catch (error) {
         console.log('Audio playback error:', error);
       }
     }
-  }, [getCurrentSounds]);
+  }, [getCurrentSounds, kitReady]);
 
   const handleTextChange = (e) => {
     const newText = e.target.value;
     setText(newText);
     
-    // Play sound for the newly typed character
-    if (newText.length > text.length) {
-      const newChar = newText[newText.length - 1];
-      playDrumSound(newChar);
-    }
-    
-    // Auto-start playback when text is entered and not already playing
-    if (newText.length > 0 && !isPlaying) {
-      // Small delay to let the current character sound finish
-      setTimeout(() => {
-        if (newText.length > 0) { // Check again in case text was cleared
-          startPlayback();
-        }
-      }, 300);
-    }
-    
-    // Stop playback if text is cleared
-    if (newText.length === 0 && isPlaying) {
+    nextIndexRef.current = 0;
+    if (newText.length === 0) {
       stopPlayback();
+    } else {
+      // Unlock audio in the typing gesture; the effect owns the only loop.
+      getAudioContext()?.resume().catch(console.error);
+      setIsPlaying(true);
     }
   };
 
   const startPlayback = useCallback(() => {
     if (!text || isPlaying) return;
     
+    getAudioContext()?.resume().catch(console.error);
     setIsPlaying(true);
-    setCurrentIndex(0);
-    
-    // Play the first character immediately
-    if (text.length > 0) {
-      playDrumSound(text[0]);
-    }
-    
-    let currentIdx = 0;
-    intervalRef.current = setInterval(() => {
-      currentIdx = (currentIdx + 1) % text.length;
-      setCurrentIndex(currentIdx);
-      playDrumSound(text[currentIdx]);
-    }, beatInterval);
-  }, [text, playDrumSound, beatInterval, isPlaying]);
+  }, [text, isPlaying]);
 
   const stopPlayback = useCallback(() => {
     setIsPlaying(false);
     setCurrentIndex(-1);
-    if (intervalRef.current) {
-      clearInterval(intervalRef.current);
-      intervalRef.current = null;
-    }
+    nextIndexRef.current = 0;
+    playbackGeneration.current += 1;
+    stopDrumSounds();
   }, []);
 
   const resetText = () => {
@@ -110,40 +102,31 @@ const TypeDrummer = () => {
 
   const togglePlayback = () => {
     if (isPlaying) {
-      stopPlayback();
+      setIsPlaying(false);
+      playbackGeneration.current += 1;
+      stopDrumSounds();
     } else {
       startPlayback();
     }
   };
 
-  // Update the text to restart playback when text changes during playback
+  // One owner for playback: every state change cleans up the previous loop.
   useEffect(() => {
-    if (isPlaying && text.length > 0) {
-      // Restart the playback with new text
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current);
-      }
-      setCurrentIndex(0);
-      
-      // Play first character of new text
-      playDrumSound(text[0]);
-      
-      let currentIdx = 0;
-      intervalRef.current = setInterval(() => {
-        currentIdx = (currentIdx + 1) % text.length;
-        setCurrentIndex(currentIdx);
-        playDrumSound(text[currentIdx]);
-      }, beatInterval);
-    }
-  }, [text, beatInterval, playDrumSound]); // Removed isPlaying to avoid infinite loop
-
-  useEffect(() => {
-    return () => {
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current);
-      }
+    if (!isPlaying || !text || !kitReady) return;
+    const tick = () => {
+      const index = nextIndexRef.current % text.length;
+      setCurrentIndex(index);
+      playDrumSound(text[index]);
+      nextIndexRef.current = (index + 1) % text.length;
     };
-  }, []);
+    tick();
+    const interval = setInterval(tick, beatInterval);
+    return () => {
+      clearInterval(interval);
+      playbackGeneration.current += 1;
+      stopDrumSounds();
+    };
+  }, [isPlaying, text, beatInterval, playDrumSound, kitReady]);
 
   const renderCharacter = (char, index) => {
     const isActive = currentIndex === index;
@@ -166,22 +149,23 @@ const TypeDrummer = () => {
   };
 
   const handleLoadBeat = (beatData) => {
+    stopPlayback();
     setText(beatData.text);
     setBpm(beatData.bpm);
     setSoundPack(beatData.soundPack);
-    // Stop current playback
-    if (isPlaying) {
-      stopPlayback();
-    }
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 flex flex-col">
       {/* Header */}
       <header className="text-center py-12 px-4">
-        <h1 className="text-6xl font-bold text-gray-800 mb-4">
-          typedrummer
+        <h1 className="text-6xl sm:text-7xl font-black tracking-tight text-gray-900 mb-3">
+          Drummist<span className="text-blue-600">.</span>
         </h1>
+        <p className="text-sm text-gray-500 mb-6">
+          <span className="font-semibold text-gray-700">By BostonyFX</span>
+          <span className="block sm:inline"> <span className="hidden sm:inline">· </span>Inspired by TypeDrummer by Kyle Stetz</span>
+        </p>
         <p className="text-xl text-gray-600 max-w-2xl mx-auto">
           Make music by typing. Each letter triggers a different drum sound. 
           Start typing and your beat will automatically loop!
@@ -224,11 +208,21 @@ const TypeDrummer = () => {
           onLoadBeat={handleLoadBeat}
         />
 
+        <div className="w-full max-w-4xl text-sm text-gray-600 py-4" aria-live="polite">
+          {sampleError ? (
+            <p role="alert">{sampleError} <button className="text-blue-600 underline" onClick={() => setLoadAttempt(value => value + 1)}>Retry loading</button></p>
+          ) : !kitReady ? (
+            <p>Loading {soundPacks[soundPack]?.name}…</p>
+          ) : soundPacks[soundPack]?.sampleBased ? (
+            <p>Recorded samples ready · A = kick · S = snare · H = closed hat · O = open hat · Space = rest</p>
+          ) : <p>Legacy synthesized sounds</p>}
+        </div>
+
         {/* Playback Controls */}
         <div className="flex items-center gap-4 mb-8">
           <Button
             onClick={togglePlayback}
-            disabled={!text}
+            disabled={!text || (!kitReady && !isPlaying)}
             size="lg"
             className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg"
           >
@@ -247,7 +241,7 @@ const TypeDrummer = () => {
           
           <Button
             onClick={stopPlayback}
-            disabled={!isPlaying}
+            disabled={!isPlaying && currentIndex === -1}
             variant="outline"
             size="lg"
             className="px-6 py-4"
@@ -269,9 +263,9 @@ const TypeDrummer = () => {
 
         {/* Auto-loop Status */}
         <div className="flex items-center gap-2 mb-8">
-          <div className="flex items-center gap-2 text-green-600">
-            <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-            <span className="text-gray-700 font-medium">Auto-loop enabled • {bpm} BPM</span>
+          <div className="flex items-center gap-2" role="status">
+            <div className={`w-3 h-3 rounded-full ${isPlaying ? 'bg-green-500 animate-pulse' : 'bg-gray-400'}`}></div>
+            <span className="text-gray-700 font-medium">{sampleError ? 'Kit unavailable' : !kitReady ? 'Loading kit' : isPlaying ? 'Playing' : currentIndex >= 0 ? 'Paused' : 'Stopped'} • {bpm} BPM</span>
           </div>
         </div>
 
@@ -283,7 +277,9 @@ const TypeDrummer = () => {
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 text-sm">
             {Object.entries(getCurrentSounds()).map(([key, sound]) => (
-              <div
+              <button
+                type="button"
+                disabled={!kitReady}
                 key={key}
                 className="flex items-center gap-2 p-2 bg-gray-50 rounded hover:bg-gray-100 cursor-pointer transition-colors"
                 onClick={() => playDrumSound(key)}
@@ -292,7 +288,7 @@ const TypeDrummer = () => {
                   {key === ' ' ? 'space' : key}
                 </span>
                 <span className="text-gray-600">{sound.name}</span>
-              </div>
+              </button>
             ))}
           </div>
         </Card>
@@ -300,7 +296,7 @@ const TypeDrummer = () => {
 
       {/* Footer */}
       <footer className="text-center py-8 px-4 text-gray-500">
-        <p>Created by Kyle Stetz • TypeDrummer Clone</p>
+        <p className="text-xs tracking-wide">Drummist · BostonyFX</p>
       </footer>
     </div>
   );

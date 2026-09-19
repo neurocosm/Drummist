@@ -56,7 +56,7 @@ export const stopRecording = () => {
   return false;
 };
 
-export const downloadRecording = (filename = 'typedrummer-beat') => {
+export const downloadRecording = (filename = 'drummist-beat') => {
   if (recordedChunks.length === 0) {
     console.error('No recording data available');
     return false;
