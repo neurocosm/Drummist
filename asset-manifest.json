@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Drummist/static/css/main.17d34f98.css",
+    "main.js": "/Drummist/static/js/main.759cc02e.js",
+    "index.html": "/Drummist/index.html",
+    "main.17d34f98.css.map": "/Drummist/static/css/main.17d34f98.css.map",
+    "main.759cc02e.js.map": "/Drummist/static/js/main.759cc02e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.17d34f98.css",
+    "static/js/main.759cc02e.js"
+  ]
+}
