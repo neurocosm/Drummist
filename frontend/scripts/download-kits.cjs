@@ -10,6 +10,16 @@ const root = path.resolve(__dirname, '../public/samples');
   for (const [kit, entries] of Object.entries(definitions)) {
     const hashes = new Set();
     for (const entry of entries) {
+      if (entry.bundled) {
+        const bytes = fs.readFileSync(path.join(root, entry.file));
+        const sha256 = crypto.createHash('sha256').update(bytes).digest('hex');
+        const previous = JSON.parse(fs.readFileSync(path.join(root, 'sources.json'))).find(item => item.file === entry.file);
+        if (!previous || previous.sha256 !== sha256) throw Error(`Bundled asset mismatch: ${entry.file}`);
+        if (hashes.has(sha256)) throw Error(`Duplicate recording: ${entry.file}`);
+        hashes.add(sha256);
+        manifest.push({kit, ...entry, bytes: bytes.length, sha256});
+        continue;
+      }
       let response = await fetch(entry.source);
       if (!response.ok) throw Error(`${response.status}: ${entry.source}`);
       let bytes = Buffer.from(await response.arrayBuffer());

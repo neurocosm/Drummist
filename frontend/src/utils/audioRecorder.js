@@ -1,3 +1,4 @@
+import { normalizeBeat } from './tracks';
 // Audio recording and export functionality for TypeDrummer
 
 let mediaRecorder = null;
@@ -81,13 +82,14 @@ export const downloadRecording = (filename = 'drummist-beat') => {
 export const getIsRecording = () => isRecording;
 
 // Simple beat export as JSON (for save/load functionality)
-export const exportBeatAsJSON = (text, bpm, soundPack) => {
+export const exportBeatAsJSON = (text, bpm, soundPack, tracks) => {
   const beatData = {
     text,
     bpm,
     soundPack,
     timestamp: new Date().toISOString(),
-    version: '1.0'
+    version: tracks ? '2.0' : '1.0',
+    ...(tracks ? { tracks } : {})
   };
   
   return JSON.stringify(beatData, null, 2);
@@ -98,11 +100,11 @@ export const importBeatFromJSON = (jsonString) => {
     const beatData = JSON.parse(jsonString);
     
     // Validate required fields
-    if (!beatData.text || !beatData.bpm || !beatData.soundPack) {
+    if (!beatData.bpm || (!beatData.tracks && (!beatData.text || !beatData.soundPack))) {
       throw new Error('Invalid beat data format');
     }
     
-    return beatData;
+    return { ...beatData, ...normalizeBeat(beatData) };
   } catch (error) {
     console.error('Failed to import beat:', error);
     return null;
@@ -110,11 +112,13 @@ export const importBeatFromJSON = (jsonString) => {
 };
 
 // Save beat to localStorage
-export const saveBeatToLocal = (name, text, bpm, soundPack) => {
+export const saveBeatToLocal = (name, text, bpm, soundPack, tracks) => {
   try {
     const beats = getSavedBeats();
     const beatData = {
       name,
+      version: tracks ? '2.0' : '1.0',
+      ...(tracks ? { tracks } : {}),
       text,
       bpm,
       soundPack,

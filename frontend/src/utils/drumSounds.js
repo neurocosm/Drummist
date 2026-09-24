@@ -42,7 +42,7 @@ export const createDrumSound = (frequency, type = 'sine', duration = 0.1, gain =
   return {
     name: `${type} ${frequency}Hz · ${Math.round(duration * 1000)}ms`,
     synthesis: { frequency, type, duration, gain },
-    play: () => {
+    play: (options = {}) => {
       try {
         const audioContext = getAudioContext();
         
@@ -60,7 +60,7 @@ export const createDrumSound = (frequency, type = 'sine', duration = 0.1, gain =
         const gainNode = audioContext.createGain();
         
         oscillator.connect(gainNode);
-        gainNode.connect(audioContext.destination);
+        gainNode.connect(options.destination || audioContext.destination);
         
         oscillator.frequency.setValueAtTime(frequency, audioContext.currentTime);
         oscillator.type = type;
@@ -90,7 +90,7 @@ export const createNoiseSound = (filterFreq, duration = 0.1, gain = 0.2) => {
   return {
     name: `Noise ${filterFreq}Hz · ${Math.round(duration * 1000)}ms`,
     synthesis: { filterFreq, type: 'noise', duration, gain },
-    play: () => {
+    play: (options = {}) => {
       try {
         const audioContext = getAudioContext();
         
@@ -126,7 +126,7 @@ export const createNoiseSound = (filterFreq, duration = 0.1, gain = 0.2) => {
         
         noise.connect(filter);
         filter.connect(gainNode);
-        gainNode.connect(audioContext.destination);
+        gainNode.connect(options.destination || audioContext.destination);
         
         activeSources.add(noise);
         noise.onended = () => {
@@ -189,7 +189,7 @@ export const drumMapping = {
   '9': createDrumSound(380, 'sawtooth', 0.06, 0.2),
   
   // Special characters
-  ' ': { name: 'Rest', play: () => {} }, // Silence/rest
+  ' ': { name: 'Rest', play: (options = {}) => {} }, // Silence/rest
   '.': createDrumSound(500, 'triangle', 0.05, 0.2), // Tick
   ',': createDrumSound(450, 'sine', 0.06, 0.2),
   '!': createNoiseSound(20000, 0.03, 0.3), // Crash accent

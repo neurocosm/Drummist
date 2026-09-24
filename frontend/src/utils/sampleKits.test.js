@@ -1,4 +1,4 @@
-import { acousticKit, vintageKit, worldKit, loadSample } from './sampleKits';
+import { acousticKit, vintageKit, worldKit, industrialKit, fxKit, loadSample } from './sampleKits';
 import { getAudioContext, trackSampleSource } from './drumSounds';
 import definitions from './sampleKitDefinitions.json';
 
@@ -20,25 +20,25 @@ beforeEach(() => {
   });
 });
 
-test('kits preload distinct recordings; Q/W differ and hats choke', async () => {
+test('kits preload distinct recordings; cymbal and cowbell differ and hats choke', async () => {
   await acousticKit.preload();
   await vintageKit.preload();
-  expect(fetch).toHaveBeenCalledTimes(78);
-  acousticKit.sounds.q.play();
-  acousticKit.sounds.w.play();
-  vintageKit.sounds.q.play();
-  vintageKit.sounds.w.play();
+  expect(fetch).toHaveBeenCalledTimes(definitions.acoustic.length + definitions['808'].length);
+  Object.values(acousticKit.sounds).find(s => s.name === 'Crash · choke').play();
+  Object.values(acousticKit.sounds).find(s => s.name === 'Ride · hard bow').play();
+  Object.values(vintageKit.sounds).find(s => s.name === 'Cymbal · dark short').play();
+  Object.values(vintageKit.sounds).find(s => s.name === 'Cowbell').play();
   expect(new Set(sources.map(source => source.buffer.url)).size).toBe(4);
-  expect(acousticKit.sounds.w.name).toBe('Ride cymbal · bow');
-  expect(vintageKit.sounds.w.name).toBe('Cowbell');
-  expect(acousticKit.sounds.a.role).toBe(vintageKit.sounds.a.role);
-  acousticKit.sounds.u.play();
+  expect(Object.values(acousticKit.sounds).find(s => s.name === 'Ride · hard bow').name).toBe('Ride · hard bow');
+  expect(Object.values(vintageKit.sounds).find(s => s.name === 'Cowbell').name).toBe('Cowbell');
+  expect(acousticKit.sounds[0].role).toBe(vintageKit.sounds[0].role);
+  Object.values(acousticKit.sounds).find(s => s.name === 'Hi-hat · half open').play();
   const openHat = sources[sources.length - 1];
-  acousticKit.sounds.h.play();
+  Object.values(acousticKit.sounds).find(s => s.name === 'Hi-hat · tight tip').play();
   expect(openHat.stop).toHaveBeenCalledTimes(1);
   expect(trackSampleSource).toHaveBeenCalled();
   await acousticKit.preload();
-  expect(fetch).toHaveBeenCalledTimes(78);
+  expect(fetch).toHaveBeenCalledTimes(definitions.acoustic.length + definitions['808'].length);
 });
 
 test('failed downloads can be retried instead of poisoning the cache', async () => {
@@ -48,10 +48,10 @@ test('failed downloads can be retried instead of poisoning the cache', async () 
   expect(fetch).toHaveBeenCalledTimes(2);
 });
 
-test.each([['acoustic', acousticKit], ['808', vintageKit], ['world', worldKit]])('%s gives every pad a unique recording in playback and WAV export', async (id, kit) => {
+test.each([['acoustic', acousticKit], ['808', vintageKit], ['world', worldKit], ['industrial', industrialKit], ['fx', fxKit]])('%s gives every pad a unique recording in playback and WAV export', async (id, kit) => {
   await kit.preload();
   const entries = Object.entries(kit.sounds).filter(([key]) => key !== ' ');
-  expect(entries).toHaveLength(39);
+  expect(entries).toHaveLength(definitions[id].length);
   const buffers = [];
   for (const [key, sound] of entries) {
     sound.play();
@@ -68,3 +68,16 @@ test.each([['acoustic', acousticKit], ['808', vintageKit], ['world', worldKit]])
   kit.sounds[' '].play();
   expect(sources).toHaveLength(count);
 });
+
+
+test('hi-hat choking stays within each track even when both use the same kit', async () => {
+  await acousticKit.preload();
+  Object.values(acousticKit.sounds).find(s => s.name === 'Hi-hat · half open').play({channel: 'track-one'});
+  const first = sources[sources.length - 1];
+  Object.values(acousticKit.sounds).find(s => s.name === 'Hi-hat · half open').play({channel: 'track-two'});
+  const second = sources[sources.length - 1];
+  Object.values(acousticKit.sounds).find(s => s.name === 'Hi-hat · tight tip').play({channel: 'track-two'});
+  expect(first.stop).not.toHaveBeenCalled();
+  expect(second.stop).toHaveBeenCalledTimes(1);
+});
+
