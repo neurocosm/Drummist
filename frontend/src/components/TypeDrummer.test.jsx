@@ -1,122 +1,50 @@
 import React, { act } from 'react';
 import { createRoot } from 'react-dom/client';
 import TypeDrummer from './TypeDrummer';
-import { drumMapping, stopDrumSounds } from '../utils/drumSounds';
 import { soundPacks } from '../utils/soundPacks';
 
 jest.mock('../utils/drumSounds', () => ({
-  drumMapping: { a: { name: 'Kick', play: jest.fn() }, b: { name: 'Snare', play: jest.fn() } },
-  getAudioContext: () => ({ state: 'running', resume: () => Promise.resolve() }),
+  getAudioContext: () => ({currentTime: 0, destination: {}, resume: () => Promise.resolve(), createGain: () => ({connect() {}, disconnect() {}, gain: {setTargetAtTime: jest.fn()}})}),
   stopDrumSounds: jest.fn(),
 }));
 jest.mock('../utils/soundPacks', () => ({
-  defaultSoundPack: 'classic',
-  soundPacks: { electronic: { name: 'Electronic', sounds: {
-    a: { name: 'Electronic kick', play: jest.fn() },
-    b: { name: 'Electronic snare', play: jest.fn() },
-  } } },
+  defaultSoundPack: 'test',
+  soundPacks: {test: {name: 'Test', sounds: {a: {name: 'Kick', play: jest.fn()}, b: {name: 'Snare', play: jest.fn()}}}, other: {name: 'Other', sounds: {a: {name: 'Other kick', play: jest.fn()}}}},
 }));
-jest.mock('./BeatControls', () => ({ bpm, setBpm, setSoundPack, onLoadBeat }) => (
-  <div>
-    <button onClick={() => setBpm(60)}>Slow tempo</button>
-    <button onClick={() => setSoundPack('electronic')}>Electronic</button>
-    <button onClick={() => onLoadBeat({ text: 'ba', bpm: 120, soundPack: 'classic' })}>Load test beat</button>
-  </div>
-));
-
+jest.mock('./BeatControls', () => ({setBpm, onLoadBeat}) => <div><button onClick={() => setBpm(120)}>Tempo</button><button onClick={() => onLoadBeat({text: 'ba', soundPack: 'test', bpm: 120})}>Load old beat</button></div>);
 let container, root;
-const click = label => act(() => [...container.querySelectorAll('button')]
-  .find(button => button.textContent.trim() === label).click());
-const type = value => act(() => {
-  const input = container.querySelector('textarea');
-  Object.getOwnPropertyDescriptor(HTMLTextAreaElement.prototype, 'value').set.call(input, value);
-  input.dispatchEvent(new Event('input', { bubbles: true }));
-});
+const click = text => act(() => [...container.querySelectorAll('button')].find(b => b.textContent === text || b.getAttribute('aria-label') === text).click());
+const type = (index, value) => act(() => { const input = container.querySelectorAll('textarea')[index]; Object.getOwnPropertyDescriptor(HTMLTextAreaElement.prototype,'value').set.call(input,value); input.dispatchEvent(new Event('input',{bubbles:true})); });
 const advance = ms => act(() => jest.advanceTimersByTime(ms));
-const count = () => drumMapping.a.play.mock.calls.length + drumMapping.b.play.mock.calls.length;
-
-beforeEach(() => {
-  global.IS_REACT_ACT_ENVIRONMENT = true;
-  jest.useFakeTimers();
-  jest.clearAllMocks();
-  container = document.createElement('div');
-  document.body.appendChild(container);
-  root = createRoot(container);
-  act(() => root.render(<React.StrictMode><TypeDrummer /></React.StrictMode>));
+beforeEach(async () => {
+  global.IS_REACT_ACT_ENVIRONMENT = true; jest.useFakeTimers(); jest.clearAllMocks();
+  container = document.createElement('div'); document.body.appendChild(container); root=createRoot(container);
+  await act(async () => {root.render(<React.StrictMode><TypeDrummer /></React.StrictMode>);});
 });
-afterEach(() => {
-  act(() => root.unmount());
-  container.remove();
-  jest.useRealTimers();
+afterEach(() => {act(() => root.unmount());container.remove();jest.useRealTimers();});
+test('short track rests until the shared loop ends; pause resumes and stop resets', () => {
+  click('Tempo'); type(0,'ab  '); click('Stop'); click('＋Add track'); type(1,'b'); click('Stop'); jest.clearAllMocks();
+  click('Play'); expect(soundPacks.test.sounds.b.play).toHaveBeenCalledTimes(1);
+  advance(125); expect(soundPacks.test.sounds.b.play).toHaveBeenCalledTimes(2);
+  advance(250); expect(soundPacks.test.sounds.b.play).toHaveBeenCalledTimes(2);
+  advance(125); expect(soundPacks.test.sounds.b.play).toHaveBeenCalledTimes(3);
+  click('Pause'); advance(500); expect(soundPacks.test.sounds.b.play).toHaveBeenCalledTimes(3);
+  click('Play'); expect(soundPacks.test.sounds.b.play).toHaveBeenCalledTimes(4);
+  click('Stop'); jest.clearAllMocks(); click('Play'); expect(soundPacks.test.sounds.a.play).toHaveBeenCalledTimes(1);
 });
-
-test('first character starts one loop; rapid edits cannot restart after Clear', () => {
-  type('a');
-  expect(count()).toBe(1);
-  expect(container.textContent).toContain('85 BPM');
-  advance(175);
-  expect(count()).toBe(1);
-  advance(1);
-  expect(count()).toBe(2);
-  type('ab');
-  type('aba');
-  click('Clear');
-  const stopped = count();
-  advance(1000);
-  expect(count()).toBe(stopped);
-  expect(container.querySelector('textarea').value).toBe('');
-  expect(container.textContent).toContain('Stopped');
-  expect(stopDrumSounds).toHaveBeenCalled();
+test('mute and solo control playback without removing sequence lengths', () => {
+  click('Tempo'); type(0,'a '); click('Stop'); click('＋Add track'); type(1,'b'); click('Stop');
+  click('Solo track 2'); jest.clearAllMocks(); click('Play'); advance(250);
+  expect(soundPacks.test.sounds.a.play).not.toHaveBeenCalled(); expect(soundPacks.test.sounds.b.play).toHaveBeenCalledTimes(2);
+  click('Mute track 2'); advance(500); expect(soundPacks.test.sounds.b.play).toHaveBeenCalledTimes(2);
+});
+test('duplicate preserves text and caps tracks at four; old saves load as one stopped track', () => {
+  type(0,'ab'); click('Stop'); click('Duplicate track 1'); click('Duplicate track 1'); click('Duplicate track 1');
+  expect(container.querySelectorAll('textarea')).toHaveLength(4);
+  expect([...container.querySelectorAll('textarea')].every(t => t.value === 'ab')).toBe(true);
+  expect([...container.querySelectorAll('button')].some(b=>b.textContent.includes('Add track'))).toBe(false);
+  click('Remove track 4');
+  expect([...container.querySelectorAll('button')].some(b=>b.textContent.includes('Add track'))).toBe(true);
+  click('Load old beat'); expect(container.querySelectorAll('textarea')).toHaveLength(1); expect(container.querySelector('textarea').value).toBe('ba'); expect(container.textContent).toContain('Stopped');
 });
 
-test('Pause resumes at the next character; Stop resets to the beginning', () => {
-  type('ab');
-  click('Pause');
-  advance(500);
-  expect(count()).toBe(1);
-  expect(container.textContent).toContain('Paused');
-  click('Play');
-  expect(drumMapping.b.play).toHaveBeenCalledTimes(1);
-  click('Stop');
-  const stopped = count();
-  advance(1000);
-  expect(count()).toBe(stopped);
-  click('Play');
-  expect(drumMapping.a.play).toHaveBeenCalledTimes(2);
-});
-
-test('loading a different beat while paused resets playback to its beginning', () => {
-  type('ab');
-  click('Pause');
-  click('Load test beat');
-  expect(container.textContent).toContain('Stopped');
-  jest.clearAllMocks();
-  advance(500);
-  expect(count()).toBe(0);
-  click('Play');
-  expect(drumMapping.b.play).toHaveBeenCalledTimes(1);
-  expect(drumMapping.a.play).not.toHaveBeenCalled();
-});
-
-test('tempo and pack replace the running loop, and cannot restart a stopped beat', () => {
-  type('ab');
-  click('Slow tempo');
-  const before = count();
-  advance(249);
-  expect(count()).toBe(before);
-  advance(1);
-  expect(count()).toBe(before + 1);
-  click('Electronic');
-  const classic = count();
-  advance(500);
-  expect(count()).toBe(classic);
-  expect(soundPacks.electronic.sounds.a.play).toHaveBeenCalled();
-  expect(soundPacks.electronic.sounds.b.play).toHaveBeenCalled();
-  click('Stop');
-  click('Slow tempo');
-  click('Load test beat');
-  advance(1000);
-  expect(count()).toBe(classic);
-  expect(container.querySelector('textarea').value).toBe('ba');
-  expect(container.textContent).toContain('Stopped');
-});

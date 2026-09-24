@@ -8,5 +8,5 @@ Wait for “Ready offline · All kits included” before disconnecting. Saved be
 
 The install button opens the browser install prompt when supported and otherwise explains browser-menu / iOS installation. Updates remain waiting until all old clients close or the user explicitly chooses the update button after saving their beat. No automatic reload occurs during playing.
 
-Offline validation: load production preview, wait for offline readiness, stop the preview server, then reload the page. Verify all three recorded kits load and WAV export completes. Restart the server afterward.
+Offline validation: load production preview, wait for offline readiness, stop the preview server, then reload the page. Verify all five sample kits load and WAV export completes. Restart the server afterward.
 

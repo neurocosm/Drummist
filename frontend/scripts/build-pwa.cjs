@@ -10,7 +10,7 @@ function walk(dir) {
     return entry.isDirectory() ? walk(file) : [file];
   });
 }
-const files = walk(root).filter(file => /\.(html|js|css|png|webmanifest|wav|flac|woff2?|txt|md|json)$/.test(file) && !file.endsWith('service-worker.js'));
+const files = walk(root).filter(file => /\.(html|js|css|png|webmanifest|wav|flac|ogg|mp3|woff2?|txt|md|json)$/.test(file) && !file.endsWith('service-worker.js'));
 const hash = crypto.createHash('sha256');
 hash.update(base);
 files.sort().forEach(file => hash.update(path.relative(root, file)).update(fs.readFileSync(file)));

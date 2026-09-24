@@ -34,3 +34,19 @@ test('rejects empty beats and invalid export lengths', async () => {
   await expect(renderBeatWav(' ',120,'test',4)).rejects.toThrow();
   await expect(renderBeatWav('a',120,'test',100)).rejects.toThrow();
 });
+
+test('mix export pads short tracks and respects volume, mute, solo and the longest loop', async () => {
+  const starts = [], levels = [];
+  global.OfflineAudioContext = jest.fn().mockImplementation((channels,length,sampleRate) => ({
+    destination: {},
+    createGain: () => ({connect() {}, gain: {setValueAtTime: value => levels.push(value), exponentialRampToValueAtTime() {}}}),
+    createOscillator: () => ({connect() {}, frequency: {}, start: time => starts.push(time), stop() {}}),
+    startRendering: async () => ({numberOfChannels: channels,sampleRate,length,getChannelData:()=>new Float32Array(length)}),
+  }));
+  const tracks = [{text:'a',soundPack:'test',volume:50,solo:true}, {text:'a   ',soundPack:'test',volume:100,muted:true}];
+  await renderBeatWav('',120,'test',2,tracks);
+  expect(starts).toEqual([0,0.5]);
+  expect(levels).toEqual([0.05,0.05]);
+  expect(OfflineAudioContext).toHaveBeenCalledWith(2,52920,44100);
+  await expect(renderBeatWav('',120,'test',2,tracks.map(t=>({...t,muted:true})))).rejects.toThrow('Unmute');
+});

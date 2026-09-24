@@ -2,39 +2,33 @@ import React, { useState } from 'react';
 import { Button } from './ui/button';
 import { Card } from './ui/card';
 import { Slider } from './ui/slider';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from './ui/dialog';
 import { Input } from './ui/input';
 import { Label } from './ui/label';
 import { 
   Download, 
-  Upload, 
   Save, 
   FolderOpen, 
   Trash2, 
   Music,
-  Settings,
-  Volume2
 } from 'lucide-react';
-import { soundPacks } from '../utils/soundPacks';
 import { 
   saveBeatToLocal, 
   loadBeatFromLocal, 
   getSavedBeats, 
   deleteSavedBeat,
-  downloadRecording,
   exportBeatAsJSON 
 } from '../utils/audioRecorder';
 import { useToast } from '../hooks/use-toast';
+import { loopLength } from '../utils/tracks';
 import { renderBeatWav } from '../utils/wavExport';
 
 const BeatControls = ({ 
   bpm, 
   setBpm, 
   soundPack, 
-  setSoundPack, 
   text, 
-  setText,
+  tracks,
   onLoadBeat 
 }) => {
   const [saveDialogOpen, setSaveDialogOpen] = useState(false);
@@ -48,14 +42,6 @@ const BeatControls = ({
 
   const handleBpmChange = (value) => {
     setBpm(value[0]);
-  };
-
-  const handleSoundPackChange = (pack) => {
-    setSoundPack(pack);
-    toast({
-      title: "Sound Pack Changed",
-      description: `Switched to ${soundPacks[pack].name} sound pack`,
-    });
   };
 
   const handleSaveBeat = () => {
@@ -77,7 +63,7 @@ const BeatControls = ({
       return;
     }
 
-    const success = saveBeatToLocal(beatName.trim(), text, bpm, soundPack);
+    const success = saveBeatToLocal(beatName.trim(), text, bpm, soundPack, tracks);
     if (success) {
       toast({
         title: "Beat Saved!",
@@ -134,7 +120,7 @@ const BeatControls = ({
       return;
     }
 
-    const jsonData = exportBeatAsJSON(text, bpm, soundPack);
+    const jsonData = exportBeatAsJSON(text, bpm, soundPack, tracks);
     const blob = new Blob([jsonData], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
@@ -154,11 +140,11 @@ const BeatControls = ({
   const handleExportAudio = async () => {
     setExporting(true);
     try {
-      const blob = await renderBeatWav(text, bpm, soundPack, Number(loops));
+      const blob = await renderBeatWav(text, bpm, soundPack, Number(loops), tracks);
       const url = URL.createObjectURL(blob);
       const link = document.createElement('a');
       link.href = url;
-      link.download = `drummist-${soundPack}-${bpm}bpm-${loops}loops.wav`;
+      link.download = `drummist-mix-${bpm}bpm-${loops}loops.wav`;
       document.body.appendChild(link);
       link.click();
       link.remove();
@@ -173,10 +159,10 @@ const BeatControls = ({
   };
 
   return (
-    <Card className="w-full max-w-4xl p-6 shadow-lg">
-      <div className="space-y-6">
+    <Card className="studio-beat-controls">
+      <div className="studio-beat-inner">
         {/* BPM Control */}
-        <div className="space-y-2">
+        <div className="studio-tempo">
           <div className="flex items-center gap-2">
             <Music className="h-4 w-4" />
             <Label className="text-sm font-medium">BPM: {bpm}</Label>
@@ -190,33 +176,7 @@ const BeatControls = ({
             step={5}
             className="w-full"
           />
-          <div className="flex justify-between text-xs text-gray-500">
-            <span>60 BPM</span>
-            <span>200 BPM</span>
-          </div>
-        </div>
 
-        {/* Sound Pack Selection */}
-        <div className="space-y-2">
-          <div className="flex items-center gap-2">
-            <Volume2 className="h-4 w-4" />
-            <Label className="text-sm font-medium">Sound Pack</Label>
-          </div>
-          <Select value={soundPack} onValueChange={handleSoundPackChange}>
-            <SelectTrigger className="w-full" aria-label="Sound Pack">
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent>
-              {Object.entries(soundPacks).filter(([key, pack]) => !pack.legacy || key === soundPack).map(([key, pack]) => (
-                <SelectItem key={key} value={key}>
-                  <div className="flex flex-col">
-                    <span className="font-medium">{pack.name}</span>
-                    <span className="text-xs text-gray-500">{pack.description}</span>
-                  </div>
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
         </div>
 
         {/* Action Buttons */}
@@ -274,7 +234,7 @@ const BeatControls = ({
                       <div className="flex-1">
                         <h4 className="font-medium">{name}</h4>
                         <p className="text-sm text-gray-500">
-                          "{beat.text}" • {beat.bpm} BPM • {soundPacks[beat.soundPack]?.name}
+                          {beat.tracks ? `${beat.tracks.length} tracks` : `"${beat.text}"`} • {beat.bpm} BPM
                         </p>
                         <p className="text-xs text-gray-400">
                           {new Date(beat.timestamp).toLocaleDateString()}
@@ -317,14 +277,14 @@ const BeatControls = ({
             <DialogContent aria-describedby="wav-description">
               <DialogHeader><DialogTitle>Export WAV</DialogTitle></DialogHeader>
               <p id="wav-description" className="text-sm text-gray-600">
-                {soundPacks[soundPack]?.name} · {bpm} BPM · Stereo, 44.1 kHz, 16-bit.
-                Includes the final drum and cymbal decay.
+                {tracks?.length || 1} tracks · {bpm} BPM · Stereo, 44.1 kHz, 16-bit.
+                Uses track volumes, mute and solo. Includes the final drum and cymbal decay.
               </p>
               <Label htmlFor="wav-loops">Number of loops</Label>
               <select id="wav-loops" value={loops} disabled={exporting} onChange={event => setLoops(event.target.value)} className="border rounded p-2">
                 {[1, 2, 4, 8].map(count => <option key={count} value={count}>{count} {count === 1 ? 'loop' : 'loops'}</option>)}
               </select>
-              <p className="text-sm text-gray-500">{(text.length * Number(loops) * 60 / bpm / 4).toFixed(1)} seconds + sound decay</p>
+              <p className="text-sm text-gray-500">{((tracks ? loopLength(tracks) : text.length) * Number(loops) * 60 / bpm / 4).toFixed(1)} seconds + sound decay</p>
               <Button onClick={handleExportAudio} disabled={exporting || !text.trim()}>{exporting ? 'Rendering…' : 'Download WAV'}</Button>
             </DialogContent>
           </Dialog>
