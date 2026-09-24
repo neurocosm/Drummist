@@ -57,7 +57,8 @@
   "scripts": {
     "start": "craco start",
     "build": "craco build && node scripts/build-pwa.cjs",
-    "test": "craco test"
+    "test": "craco test",
+    "release:stamp": "node scripts/stamp-release.cjs"
   },
   "browserslist": {
     "production": [

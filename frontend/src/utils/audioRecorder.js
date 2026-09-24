@@ -1,3 +1,4 @@
+import release from '../release.json';
 import { normalizeBeat } from './tracks';
 // Audio recording and export functionality for TypeDrummer
 
@@ -89,6 +90,7 @@ export const exportBeatAsJSON = (text, bpm, soundPack, tracks) => {
     soundPack,
     timestamp: new Date().toISOString(),
     version: tracks ? '2.0' : '1.0',
+      appVersion: release.version,
     ...(tracks ? { tracks } : {})
   };
   
@@ -118,6 +120,7 @@ export const saveBeatToLocal = (name, text, bpm, soundPack, tracks) => {
     const beatData = {
       name,
       version: tracks ? '2.0' : '1.0',
+      appVersion: release.version,
       ...(tracks ? { tracks } : {}),
       text,
       bpm,

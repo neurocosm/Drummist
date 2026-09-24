@@ -1,4 +1,5 @@
 import './TrackStudio.css';
+import release from '../release.json';
 import React, { useState, useEffect, useRef } from 'react';
 import { Button } from './ui/button';
 import { Card } from './ui/card';
@@ -160,7 +161,7 @@ export default function TypeDrummer() {
         </section>)}</div>
       </Card></details>
     </main>
-    <footer className="text-center py-3 px-4 text-gray-500 text-xs"><p>Drummist · <a href="https://www.instagram.com/tony_bostony/" target="_blank" rel="noopener noreferrer" className="underline">BostonyFX</a></p><a href={`${process.env.PUBLIC_URL || ''}/sample-credits.html`} target="_blank" rel="noopener noreferrer" className="inline-block mt-2 underline">Sound credits</a></footer>
+    <footer className="text-center py-3 px-4 text-gray-500 text-xs"><p className="mb-1">{release.version}</p><p>Drummist · <a href="https://www.instagram.com/tony_bostony/" target="_blank" rel="noopener noreferrer" className="underline">BostonyFX</a></p><a href={`${process.env.PUBLIC_URL || ''}/sample-credits.html`} target="_blank" rel="noopener noreferrer" className="inline-block mt-2 underline">Sound credits</a></footer>
   </div>;
 }
 
